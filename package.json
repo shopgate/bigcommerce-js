@@ -1,0 +1,27 @@
+{
+  "name": "@shopgate/bigcommerce-webcheckout",
+  "version": "0.1.0",
+  "description": "This repository contains all JavaScripts for BigCommerce webcheckout",
+  "scripts": {
+    "webpack:production": "cross-env NODE_ENV=production webpack && npm run uglify:analytics",
+    "webpack": "webpack && npm run uglify:analytics",
+    "uglify:analytics": "uglifyjs src/analytics-v1.js -o build/bundle/analytics-v1.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shopgate/webcheckout-bigcommerce.git"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {},
+  "devDependencies": {
+    "@shopgate/eslint-config": "^1.0.3",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.1.3",
+    "eslint": "^4.16.0",
+    "uglify-js": "^3.3.8",
+    "uglifyjs-webpack-plugin": "^1.1.6",
+    "webpack": "^3.10.0"
+  }
+}
