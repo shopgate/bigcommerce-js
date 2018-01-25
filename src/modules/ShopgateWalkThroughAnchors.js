@@ -1,7 +1,15 @@
-export function shopgateWalkThroughAnchors (manipulateCallback) {
-  const anchors = document.getElementsByTagName('A')
+/**
+ * @callback ManipulateCallback
+ * @param {Object} anchor
+ */
 
-  for (let i = 0; i < anchors.length; i++) {
-    manipulateCallback(anchors[i])
+/**
+ * @param {ManipulateCallback} manipulateCallback callback has to expect anchors as a parameter
+ */
+export function shopgateWalkThroughAnchors(manipulateCallback) {
+  const anchors = document.getElementsByTagName('A');
+
+  for (let i = 0; i < anchors.length; i += 1) {
+    manipulateCallback(anchors[i]);
   }
 }

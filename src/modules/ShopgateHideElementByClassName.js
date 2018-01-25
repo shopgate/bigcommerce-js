@@ -1,10 +1,10 @@
 /**
- * @param {string} elementClass
+ * @param {string} elementClass class of the DOM element
  */
-export function shopgateHideElementByClassName (elementClass) {
-  let elements = document.getElementsByClassName(elementClass)
+export function shopgateHideElementByClassName(elementClass) {
+  const elements = document.getElementsByClassName(elementClass);
 
-  for (let i = 0; i < elements.length; ++i) {
-    elements[i].style.display = 'none'
+  for (let i = 0; i < elements.length; i += 1) {
+    elements[i].style.display = 'none';
   }
 }

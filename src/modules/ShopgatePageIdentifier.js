@@ -1,18 +1,18 @@
 export const shopgatePageIdentifier = {
   scriptFileName: window.location.pathname.substr(1),
-  isCheckoutSuccess: function () {
-    return this.scriptFileName === 'checkout/order-confirmation' || this.scriptFileName === 'finishorder.php'
+  isCheckoutSuccess() {
+    return this.scriptFileName === 'checkout/order-confirmation' || this.scriptFileName === 'finishorder.php';
   },
-  isCart: function () {
-    return sgScriptFilename === 'cart.php'
+  isCart() {
+    return this.scriptFileName === 'cart.php';
   },
-  isCheckout: function () {
-    return _sgScriptFilename === 'checkout' || _sgScriptFilename === 'checkout.php'
+  isCheckout() {
+    return this.scriptFileName === 'checkout' || this.scriptFileName === 'checkout.php';
   },
-  isLogin: function () {
-    return _sgScriptFilename === 'login.php'
+  isLogin() {
+    return this.scriptFileName === 'login.php';
   },
-  isRegistration: function () {
-    return window.location.search.indexOf('action=account_created') !== -1
-  }
-}
+  isRegistrationSuccess() {
+    return window.location.search.indexOf('action=account_created') !== -1;
+  },
+};

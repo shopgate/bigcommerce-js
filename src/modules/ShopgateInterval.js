@@ -1,24 +1,28 @@
 /**
- * Creates an interval and executes the executeCallback until it returns true or the interval finishes.
+ * Creates an interval and executes the executeCallback until it returns true or interval finishes
  *
- * @param {int} intervalInMiliseconds
- * @param {int} maximumIntervallTimeInMiliseconds
- * @param {function} executeCallback
- * @constructor
+ * @param {int} intervalInMiliseconds interval in milisenconds
+ * @param {int} maximumIntervallTimeInMiliseconds maximum interval in miliseconds
+ * @param {function} executeCallback callback has to return true in case it will finish execution
+ *                                   and false if it should repeatedly executed
  */
-export function ShopgateInterval (intervalInMiliseconds, maximumIntervallTimeInMiliseconds, executeCallback) {
-  let startTimestampInMiliseconds = Date.now()
+export function shopgateInterval(
+  intervalInMiliseconds,
+  maximumIntervallTimeInMiliseconds,
+  executeCallback
+) {
+  const startTimestampInMiliseconds = Date.now();
 
-  let interval = setInterval(function () {
+  const interval = setInterval(() => {
     if (startTimestampInMiliseconds + maximumIntervallTimeInMiliseconds <= Date.now()) {
-      clearInterval(interval)
-      return
+      clearInterval(interval);
+      return;
     }
 
     if (!executeCallback()) {
-      return
+      return;
     }
 
-    clearInterval(interval)
-  }, intervalInMiliseconds)
+    clearInterval(interval);
+  }, intervalInMiliseconds);
 }
