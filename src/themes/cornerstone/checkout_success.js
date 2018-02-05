@@ -9,13 +9,11 @@ function shopgateChangeLinks() {
 
   for (let i = 0; i < anchors.length; i += 1) {
     if (anchors[i].href.indexOf('action=view_order') !== -1) {
-      // eslint-disable-next-line no-script-url
-      anchors[i].href = 'javascript:;';
+      anchors[i].href = e => e.preventDefault();
     }
 
     if (anchors[i].parentElement.nodeName === 'H1' || anchors[i].parentElement.nodeName === 'H2') {
-      // eslint-disable-next-line no-script-url
-      anchors[i].href = 'javascript:;';
+      anchors[i].href = e => e.preventDefault();
     }
   }
 }

@@ -3,8 +3,8 @@ const webpack = require('webpack');
 
 const webpackConfiguration = {
   entry: {
-    'order-placed-v1': './src/order-placed-v1.js',
-    'cornerstone-v1': './src/themes/cornerstone-v1.js',
+    'order-placed': './src/order-placed.js',
+    cornerstone: './src/themes/cornerstone.js',
   },
   module: {
     rules: [

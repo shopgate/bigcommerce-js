@@ -1,15 +1,10 @@
-import { shopgateInterval } from './modules/ShopgateInterval';
-import { isShopgateApp } from './modules/IsShopgateApp';
+import { shopgateExecuteAppRelatedCode } from './modules/ShopgateExecuteAppRelatedCode';
 
 /**
  * This method will trigger the checkoutSuccess event and prepare the Shopgate App
  */
 function shopgateOrderPlaced() {
-  shopgateInterval(10, 5000, () => {
-    if (!isShopgateApp) {
-      return false;
-    }
-
+  shopgateExecuteAppRelatedCode(() => {
     const isAndroidApp = !('dispatchCommandsForVersion' in window.SGJavascriptBridge);
 
     const setNavigationBarParams = {
@@ -25,7 +20,7 @@ function shopgateOrderPlaced() {
       },
     };
 
-    if (isAndroidApp) { // TODO: try to remove
+    if (isAndroidApp) { // TODO: try to remove and check in Android / iOS
       setNavigationBarParams.p.navigationBarParams.rightButtonType = 'custom';
       setNavigationBarParams.p.navigationBarParams.rightButton = 'Done';
     }
@@ -34,7 +29,7 @@ function shopgateOrderPlaced() {
       {
         c: 'broadcastEvent',
         p: {
-          event: 'checkoutSuccess', // TODO: In App Browser will be closed & cart will be reloaded
+          event: 'checkoutSuccess',
         },
       },
     ];

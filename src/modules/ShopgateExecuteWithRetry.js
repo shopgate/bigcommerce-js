@@ -6,7 +6,7 @@
  * @param {function} executeCallback callback has to return true in case it will finish execution
  *                                   and false if it should repeatedly executed
  */
-export function shopgateInterval(
+export function shopgateExecuteWithRetry(
   intervalInMiliseconds,
   maximumIntervallTimeInMiliseconds,
   executeCallback

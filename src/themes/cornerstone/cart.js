@@ -1,3 +1,4 @@
+/* eslint eslint-comments/no-use: off */
 import { shopgateHideElementByClassName } from '../../modules/ShopgateHideElementByClassName';
 import { shopgateWalkThroughAnchors } from '../../modules/ShopgateWalkThroughAnchors';
 
@@ -10,8 +11,8 @@ export function shopgateCart() {
       anchor.parentElement.nodeName === 'H1'
       || anchor.parentElement.nodeName === 'H2'
     ) {
-      // eslint-disable-next-line no-script-url, no-param-reassign
-      anchor.href = 'javascript:;';
+      // eslint-disable-next-line no-param-reassign
+      anchor.onclick = e => e.preventDefault();
     }
   });
 
@@ -22,8 +23,8 @@ export function shopgateCart() {
     if (
       anchor.parentElement.className === 'cart-item-name'
     ) {
-      // eslint-disable-next-line no-script-url, no-param-reassign
-      anchor.href = 'javascript:;';
+      // eslint-disable-next-line no-param-reassign
+      anchor.onclick = e => e.preventDefault();
     }
   }));
 }

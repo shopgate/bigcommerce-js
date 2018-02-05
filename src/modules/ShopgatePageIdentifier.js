@@ -9,8 +9,8 @@ export const shopgatePageIdentifier = {
   isCheckout() {
     return this.scriptFileName === 'checkout' || this.scriptFileName === 'checkout.php';
   },
-  isLogin() {
-    return this.scriptFileName === 'login.php';
+  isRegister() {
+    return window.location.search.indexOf('action=create_account') !== -1;
   },
   isRegistrationSuccess() {
     return window.location.search.indexOf('action=account_created') !== -1;

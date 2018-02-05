@@ -1,3 +1,4 @@
+/* eslint eslint-comments/no-use: off */
 import { shopgateWalkThroughAnchors } from '../../modules/ShopgateWalkThroughAnchors';
 
 /**
@@ -9,8 +10,8 @@ export function shopgateCheckout() {
       anchor.parentElement.nodeName === 'H1'
       || anchor.parentElement.nodeName === 'H2'
     ) {
-      // eslint-disable-next-line no-script-url, no-param-reassign
-      anchor.href = 'javascript:;'; // TODO: onclick="(e) => e.preventDefault()"
+      // eslint-disable-next-line no-param-reassign
+      anchor.onclick = e => e.preventDefault();
     }
   });
 }

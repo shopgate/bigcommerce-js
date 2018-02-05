@@ -4,5 +4,5 @@
  * @returns {*}
  */
 export function isShopgateApp() {
-  return window.SGJavascriptBridge;
+  return !!window.SGJavascriptBridge;
 }
