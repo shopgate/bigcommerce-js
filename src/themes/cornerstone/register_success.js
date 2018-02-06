@@ -30,7 +30,8 @@ export function shopgateRegisterSuccess() {
       },
     ];
 
-    window.SGJavascriptBridge.dispatchCommandsStringForVersion(JSON.stringify(commands), '9.0');
+    // TODO: Currently only working on Android
+    window.SGJavascriptBridge.dispatchCommandsStringForVersion(JSON.stringify(commands), '12.0');
   }
 
   shopgateExecuteAppRelatedCode(shopgateAppOpenLoginForm);
