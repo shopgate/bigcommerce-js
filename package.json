@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "description": "This repository contains all JavaScripts for BigCommerce webcheckout",
   "scripts": {
-    "webpack:production": "cross-env NODE_ENV=production webpack && npm run uglify:analytics",
-    "webpack": "webpack && npm run uglify:analytics",
-    "uglify:analytics": "uglifyjs src/analytics.js -o build/bundle/analytics.js"
+    "webpack:production": "cross-env NODE_ENV=production webpack && npm run create:bigcommerce",
+    "webpack": "webpack && npm run create:bigcommerce",
+    "create:bigcommerce": "cp src/bigcommerce.js build/bundle/bigcommerce.js"
   },
   "repository": {
     "type": "git",
