@@ -40,13 +40,13 @@ function shopgateInit() {
 
   var scriptFileName = window.location.pathname.substr(1);
   if (scriptFileName === 'checkout/order-confirmation' || scriptFileName === 'finishorder.php') {
-    addTracking()
+    addTracking(shopgateShopNumber)
   }
 
   addTheme()
 }
 
-function addTracking() {
+function addTracking(shopgateShopNumber) {
   (function(src) {
     var s, r, t;
     r = false;
