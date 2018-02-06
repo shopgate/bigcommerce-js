@@ -1,5 +1,5 @@
 /* eslint eslint-comments/no-use: off */
-import { shopgateHideElementByClassName } from '../../modules/ShopgateHideElementByClassName';
+import { shopgateHideElementsByClassName } from '../../modules/ShopgateHideElementByClassName';
 import { shopgateWalkThroughAnchors } from '../../modules/ShopgateWalkThroughAnchors';
 
 /**
@@ -16,8 +16,8 @@ export function shopgateCart() {
     }
   });
 
-  shopgateHideElementByClassName('header');
-  shopgateHideElementByClassName('footer');
+  shopgateHideElementsByClassName('header');
+  shopgateHideElementsByClassName('footer');
 
   shopgateWalkThroughAnchors(((anchor) => {
     if (

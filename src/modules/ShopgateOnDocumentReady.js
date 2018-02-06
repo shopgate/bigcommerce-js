@@ -8,7 +8,8 @@
 export function shopgateOnDocumentReady(callback) {
   if (document.readyState === 'complete') {
     callback();
-  } else {
-    document.addEventListener('DOMContentLoaded', callback);
+    return;
   }
+
+  document.addEventListener('DOMContentLoaded', callback);
 }

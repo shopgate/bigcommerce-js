@@ -1,13 +1,13 @@
-import { shopgateHideElementByClassName } from '../../modules/ShopgateHideElementByClassName';
+import { shopgateHideElementsByClassName } from '../../modules/ShopgateHideElementByClassName';
 import { shopgateExecuteAppRelatedCode } from '../../modules/ShopgateExecuteAppRelatedCode';
 
 /**
  * Makes register success page escape proof
  */
 export function shopgateRegisterSuccess() {
-  shopgateHideElementByClassName('header');
-  shopgateHideElementByClassName('footer');
-  shopgateHideElementByClassName('button');
+  shopgateHideElementsByClassName('header');
+  shopgateHideElementsByClassName('footer');
+  shopgateHideElementsByClassName('button');
 
   /**
    * Shows the login page in the app

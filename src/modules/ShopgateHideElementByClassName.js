@@ -1,7 +1,7 @@
 /**
  * @param {string} elementClass class of the DOM element
  */
-export function shopgateHideElementByClassName(elementClass) {
+export function shopgateHideElementsByClassName(elementClass) {
   const elements = document.getElementsByClassName(elementClass);
 
   for (let i = 0; i < elements.length; i += 1) {

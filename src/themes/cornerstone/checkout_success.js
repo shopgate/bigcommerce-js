@@ -1,4 +1,4 @@
-import { shopgateHideElementByClassName } from '../../modules/ShopgateHideElementByClassName';
+import { shopgateHideElementsByClassName } from '../../modules/ShopgateHideElementByClassName';
 import { shopgateHideElementById } from '../../modules/ShopgateHideElementById';
 
 /**
@@ -22,7 +22,7 @@ function shopgateChangeLinks() {
  * Hides specific elements
  */
 function shopgateHideLinksToDesktopPage() {
-  shopgateHideElementByClassName('checkout-banner');
+  shopgateHideElementsByClassName('checkout-banner');
   shopgateHideElementById('SimilarMultiProductsByCustomerViews');
   shopgateChangeLinks();
 }
