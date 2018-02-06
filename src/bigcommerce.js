@@ -58,7 +58,7 @@ function addTracking(shopgateShopNumber) {
     window.__shopgate_aq = window.__shopgate_aq || [];
     window.sgAnalytics = function() { window.__shopgate_aq.push(arguments); };
   })
-  ('https://data.shopgate.com/tracking/shopgate-analytics-sdk.development.min.js');
+  ('https://data.shopgate.com/tracking/shopgate-analytics-sdk.production.min.js');
 
   function ShopgateUniversalTracking() {
     this._addTrans = addTrans;
