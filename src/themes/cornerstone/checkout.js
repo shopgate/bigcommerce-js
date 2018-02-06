@@ -1,4 +1,3 @@
-/* eslint eslint-comments/no-use: off */
 import { shopgateWalkThroughAnchors } from '../../modules/ShopgateWalkThroughAnchors';
 
 /**

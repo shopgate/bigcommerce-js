@@ -5,7 +5,7 @@ import { shopgateExecuteAppRelatedCode } from './modules/ShopgateExecuteAppRelat
  */
 function shopgateOrderPlaced() {
   shopgateExecuteAppRelatedCode(() => {
-    const isAndroidApp = !('dispatchCommandsForVersion' in window.SGJavascriptBridge);
+    const isDispatchCommandsForVersionAvailable = 'dispatchCommandsForVersion' in window.SGJavascriptBridge;
 
     const setNavigationBarParams = {
       c: 'setNavigationBarParams',
@@ -20,7 +20,7 @@ function shopgateOrderPlaced() {
       },
     };
 
-    if (isAndroidApp) { // TODO: try to remove and check in Android / iOS
+    if (!isDispatchCommandsForVersionAvailable) { // TODO: try to remove and check in Android / iOS
       setNavigationBarParams.p.navigationBarParams.rightButtonType = 'custom';
       setNavigationBarParams.p.navigationBarParams.rightButton = 'Done';
     }
@@ -36,7 +36,7 @@ function shopgateOrderPlaced() {
 
     commands.push(setNavigationBarParams);
 
-    if ('dispatchCommandsForVersion' in window.SGJavascriptBridge) {
+    if (isDispatchCommandsForVersionAvailable) {
       window.SGJavascriptBridge.dispatchCommandsForVersion(commands, '9.0');
     } else {
       window.SGJavascriptBridge.dispatchCommandsStringForVersion(JSON.stringify(commands), '9.0');

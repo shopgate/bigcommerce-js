@@ -10,7 +10,7 @@ const webpackConfiguration = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(analytics-v1\.js)/,
+        exclude: /(analytics\.js)/,
         use: {
           loader: 'babel-loader',
           options: {
