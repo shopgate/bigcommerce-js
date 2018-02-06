@@ -1,6 +1,6 @@
 /* eslint-disable eslint-comments/no-unlimited-disable */
 /* eslint-disable */
-if (window.SGJavascriptBridge) { // TODO: check for iOS and do the polling
+if (window.SGJavascriptBridge) {
   shopgateInit()
 } else if (navigator.userAgent.indexOf('libshopgate') !== -1) { // Shopgate iOS App
   function shopgateExecuteWithRetry(
@@ -29,7 +29,7 @@ if (window.SGJavascriptBridge) { // TODO: check for iOS and do the polling
       return false;
     }
 
-    shopgateInit()
+    shopgateInit();
 
     return true;
   })
