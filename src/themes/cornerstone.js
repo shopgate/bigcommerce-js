@@ -5,6 +5,8 @@ import { shopgateOnDocumentReady } from '../modules/ShopgateOnDocumentReady';
 import { shopgatePageIdentifier } from '../modules/ShopgatePageIdentifier';
 import { shopgateRegisterSuccess } from './cornerstone/register_success';
 import { shopgateRegister } from './cornerstone/register';
+import { shopgateLogin } from './cornerstone/login';
+import { shopgateForgotPassword } from './cornerstone/forgot_password';
 import { shopgateExecuteAppRelatedCode } from '../modules/ShopgateExecuteAppRelatedCode';
 
 shopgateExecuteAppRelatedCode(() => {
@@ -24,8 +26,16 @@ shopgateExecuteAppRelatedCode(() => {
     shopgateOnDocumentReady(shopgateRegister);
   }
 
+  if (shopgatePageIdentifier.isLogin()) {
+    shopgateOnDocumentReady(shopgateLogin);
+  }
+
   if (shopgatePageIdentifier.isRegistrationSuccess()) {
     shopgateOnDocumentReady(shopgateRegisterSuccess);
+  }
+
+  if (shopgatePageIdentifier.isForgotPassword()) {
+    shopgateOnDocumentReady(shopgateForgotPassword);
   }
 });
 
