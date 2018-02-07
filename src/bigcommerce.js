@@ -115,8 +115,7 @@ function initTracking() {
   window.sgAnalytics = function() { window.__shopgate_aq.push(arguments); };
 
   var shopgateTrackingScript = document.createElement('script');
-  // TODO: Add url
-  shopgateTrackingScript.setAttribute('src', 'https://.../bigcommerce/v1/src/shopgate-analytics.bundle.min.js');
+  shopgateTrackingScript.setAttribute('src', 'https://d192j2fhh9i6kr.cloudfront.net/bigcommerce/v1/src/shopgate-analytics.bundle.min.js');
   document.head.appendChild(shopgateTrackingScript);
 }
 
@@ -125,8 +124,7 @@ function initTracking() {
  */
 function loadTheme() {
   var cornerstoneTheme = document.createElement('script');
-  // TODO: Add url
-  cornerstoneTheme.setAttribute('src', 'https://.../bigcommerce/v1/src/cornerstone.bundle.min.js');
+  cornerstoneTheme.setAttribute('src', 'https://d192j2fhh9i6kr.cloudfront.net/bigcommerce/v1/src/themes/cornerstone.bundle.min.js');
   document.head.appendChild(cornerstoneTheme);
 }
 
