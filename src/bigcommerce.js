@@ -116,7 +116,7 @@ function initTracking() {
 
   var shopgateTrackingScript = document.createElement('script');
   // TODO: Add url
-  shopgateTrackingScript.setAttribute('src', 'https://.../bigcommerce/v1/src/checkout-success.bundle.min.js');
+  shopgateTrackingScript.setAttribute('src', 'https://.../bigcommerce/v1/src/shopgate-analytics.bundle.min.js');
   document.head.appendChild(shopgateTrackingScript);
 }
 

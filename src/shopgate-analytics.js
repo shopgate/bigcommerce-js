@@ -10,4 +10,4 @@
   t.parentNode.insertBefore(s, t);
   window.__shopgate_aq = window.__shopgate_aq || [];
   window.sgAnalytics = function () { window.__shopgate_aq.push(arguments); };
-}('https://data.shopgate.com/tracking/shopgate-analytics-sdk.development.min.js'));
+}('https://data.shopgate.com/tracking/shopgate-analytics-sdk.production.min.js'));

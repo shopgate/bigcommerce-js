@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const webpackConfiguration = {
   entry: {
     'src/order-placed': './src/order-placed.js',
-    'src/checkout-success': './src/checkout-success.js',
+    'src/tracking': './src/shopgate-analytics.js',
     'src/themes/cornerstone': './src/themes/cornerstone.js',
   },
   module: {
