@@ -11,7 +11,7 @@ const webpackConfiguration = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(analytics\.js)/,
+        exclude: /(bigcommerce\.js)/,
         use: {
           loader: 'babel-loader',
           options: {
