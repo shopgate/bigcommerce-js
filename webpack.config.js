@@ -3,8 +3,9 @@ const webpack = require('webpack');
 
 const webpackConfiguration = {
   entry: {
-    'order-placed': './src/order-placed.js',
-    cornerstone: './src/themes/cornerstone.js',
+    'src/order-placed': './src/order-placed.js',
+    'src/checkout-success': './src/checkout-success.js',
+    'src/themes/cornerstone': './src/themes/cornerstone.js',
   },
   module: {
     rules: [
@@ -21,7 +22,7 @@ const webpackConfiguration = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, 'build/bundle'),
+    path: path.resolve(__dirname, 'build/'),
     filename: '[name].bundle.js',
   },
   plugins: [],
@@ -34,4 +35,6 @@ if (process.env.NODE_ENV === 'production') {
   }));
 }
 
-module.exports = webpackConfiguration;
+module.exports = [
+  webpackConfiguration,
+];

@@ -5,7 +5,7 @@
   "scripts": {
     "webpack:production": "cross-env NODE_ENV=production webpack && npm run create:bigcommerce",
     "webpack": "webpack && npm run create:bigcommerce",
-    "create:bigcommerce": "cp src/bigcommerce.js build/bundle/bigcommerce.js"
+    "create:bigcommerce": "cp src/bigcommerce.js build/src/bigcommerce.js"
   },
   "repository": {
     "type": "git",
