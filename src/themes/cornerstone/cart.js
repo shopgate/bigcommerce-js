@@ -1,4 +1,3 @@
-/* eslint eslint-comments/no-use: off */
 import { shopgateHideElementsByClassName } from '../../modules/ShopgateHideElementByClassName';
 import { shopgateWalkThroughAnchors } from '../../modules/ShopgateWalkThroughAnchors';
 

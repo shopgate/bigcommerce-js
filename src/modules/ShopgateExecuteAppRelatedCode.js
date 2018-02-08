@@ -1,6 +1,6 @@
 import { isShopgateIosApp } from './IsShopgateIosApp';
 import { shopgateExecuteWithRetry } from './ShopgateExecuteWithRetry';
-import { isShopgateApp } from './IsShopgateApp';
+import { isShopgateJSBridgeAvailable } from './isShopgateJSBridgeAvailable';
 
 let shopgateApp = false;
 
@@ -11,9 +11,9 @@ let shopgateApp = false;
  */
 export function shopgateExecuteAppRelatedCode(executeCallback) {
   if (shopgateApp === false) {
-    if (isShopgateIosApp() && !isShopgateApp()) {
+    if (isShopgateIosApp() && !isShopgateJSBridgeAvailable()) {
       shopgateExecuteWithRetry(25, 2500, () => {
-        if (!isShopgateApp()) {
+        if (!isShopgateJSBridgeAvailable()) {
           return false;
         }
 
@@ -25,7 +25,7 @@ export function shopgateExecuteAppRelatedCode(executeCallback) {
       return;
     }
 
-    if (isShopgateApp()) {
+    if (isShopgateJSBridgeAvailable()) {
       shopgateApp = true;
     }
   }

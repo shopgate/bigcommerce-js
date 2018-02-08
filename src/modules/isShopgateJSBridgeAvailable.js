@@ -3,6 +3,6 @@
  *
  * @returns {boolean}
  */
-export function isShopgateApp() {
+export function isShopgateJSBridgeAvailable() {
   return !!window.SGJavascriptBridge;
 }
