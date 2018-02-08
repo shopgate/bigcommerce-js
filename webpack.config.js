@@ -7,7 +7,7 @@ const webpackConfiguration = {
     'src/shopgate-analytics': './src/shopgate-analytics.js',
     'src/themes/cornerstone': './src/themes/cornerstone.js',
   },
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === 'production') {
   webpackConfiguration.output.filename = '[name].bundle.min.js';
   webpackConfiguration.plugins.push(new webpack.optimize.UglifyJsPlugin({
     minimize: true,
-    sourceMap: true
+    sourceMap: true,
   }));
 }
 
