@@ -6,7 +6,7 @@
  * @param {requestCallback} callback function to be called when document is ready
  */
 export function shopgateOnDocumentReady(callback) {
-  if (document.readyState === 'complete') {
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
     callback();
     return;
   }
