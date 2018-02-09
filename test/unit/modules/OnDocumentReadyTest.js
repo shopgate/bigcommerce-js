@@ -25,7 +25,7 @@ describe('OnDocumentReady', () => {
 
     global.document.dispatchEvent(new window.Event('DOMContentLoaded'));
 
-    expect(callback.called).equal(true);
+    expect(callback.calledOnce).equal(true);
   });
 
   it('should call the callback directly when readyState is already set to complete', () => {
@@ -37,7 +37,7 @@ describe('OnDocumentReady', () => {
 
     onDocumentReady.execute(callback);
 
-    expect(callback.called).equal(true);
+    expect(callback.calledOnce).equal(true);
   });
 
   it('should call the callback directly when readyState is already set to interactive', () => {
@@ -49,6 +49,20 @@ describe('OnDocumentReady', () => {
 
     onDocumentReady.execute(callback);
 
-    expect(callback.called).equal(true);
+    expect(callback.calledOnce).equal(true);
+  });
+
+  it('should not be called twice in case readyState is complete and the event is triggered', () => {
+    const callback = sinon.spy();
+
+    Object.defineProperty(document, 'readyState', {
+      get() { return 'complete'; },
+    });
+
+    onDocumentReady.execute(callback);
+
+    global.document.dispatchEvent(new window.Event('DOMContentLoaded'));
+
+    expect(callback.calledOnce).equal(true);
   });
 });
