@@ -1,4 +1,4 @@
-# Shopgate Connect - BigCommerce Webcheckout
+# Shopgate Connect - BigCommerce Extension Java Scripts
 [![GitHub license](http://dmlc.github.io/img/apache2.svg)](LICENSE.md)
 
 This repository contains all JavaScripts needed for the Shopgate BigCommerce extension

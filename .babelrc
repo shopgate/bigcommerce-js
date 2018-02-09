@@ -1,0 +1,11 @@
+{
+  "presets": ["env"],
+  "plugins": ["dynamic-import-node"],
+  "env": {
+    "test": {
+      "presets": [
+        "env"
+      ]
+    }
+  }
+}

@@ -1,15 +1,25 @@
 {
-  "name": "@shopgate/bigcommerce-webcheckout",
+  "name": "@shopgate/bigcommerce-js",
   "version": "0.1.0",
-  "description": "This repository contains all JavaScripts for BigCommerce webcheckout",
+  "description": "This repository contains all JavaScripts for the Shopgate Connect BigCommerce Extension",
   "scripts": {
+    "precommit": "npm run lint-staged && npm run test",
     "webpack:production": "cross-env NODE_ENV=production webpack && npm run create:bigcommerce",
     "webpack": "webpack && npm run create:bigcommerce",
-    "create:bigcommerce": "cp src/bigcommerce.js build/src/bigcommerce.js"
+    "create:bigcommerce": "cp src/bigcommerce.js build/src/bigcommerce.js",
+    "test": "_mocha --use_strict --require babel-core/register --require test/setupBackend.js --recursive test/",
+    "test:unit": "_mocha --use_strict --require babel-core/register --require test/setupBackend.js --recursive test/unit/",
+    "test:integration": "_mocha --use_strict --timeout 4000 --require babel-core/register --require test/setupBackend.js --recursive test/integration/",
+    "lint": "eslint src",
+    "lint-staged": "eslint",
+    "check": "nsp check"
+  },
+  "lint-staged": {
+    "*.js": "lint-staged"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shopgate/webcheckout-bigcommerce.git"
+    "url": "https://github.com/shopgate/bigcommerce-js.git"
   },
   "license": "Apache-2.0",
   "dependencies": {},
@@ -17,9 +27,17 @@
     "@shopgate/eslint-config": "^1.0.3",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
     "cross-env": "^5.1.3",
     "eslint": "^4.16.0",
+    "husky": "^0.14.3",
+    "jsdom": "^11.6.2",
+    "lint-staged": "^6.1.0",
+    "mocha": "^5.0.0",
+    "nsp": "^3.1.0",
     "uglify-js": "^3.3.8",
     "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.10.0"

@@ -2,5 +2,8 @@
   "extends": "@shopgate/eslint-config",
   "rules": {
     "eslint-comments/no-use": "allow"
+  },
+  "env": {
+    "mocha": true
   }
 }
