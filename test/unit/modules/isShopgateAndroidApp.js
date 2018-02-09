@@ -17,7 +17,7 @@ describe('isShopgateAndroidApp', () => {
     expect(isShopgateAndroidApp()).equal(true);
   });
 
-  it('should not identify an Android device when JavaccriptBridge is true and useragent doesn\'t fit', () => {
+  it('should not identify an Android device when JavascriptBridge is true and useragent doesn\'t fit', () => {
     global.navigator = {
       userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_1_2 like Mac OS X) AppleWebKit/604.3.5 (KHTML, like Gecko) Mobile/15B202 libshopgate/16.0 (Shopgate Standalone 10.16.0 Codebase:10.16.0)',
     };
