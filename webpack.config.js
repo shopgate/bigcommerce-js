@@ -6,7 +6,6 @@ const webpackConfiguration = {
     'src/order-placed': './src/order-placed.js',
     'src/shopgate-analytics': './src/shopgate-analytics.js',
     'src/themes/cornerstone': './src/themes/cornerstone.js',
-    'src/test': './src/themes/cornerstone/CheckoutSuccess.js',
   },
   devtool: 'source-map',
   module: {
