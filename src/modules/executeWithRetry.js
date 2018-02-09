@@ -5,21 +5,25 @@
  * @param {int} maximumIntervallTimeInMiliseconds maximum interval in miliseconds
  * @param {function} executeCallback callback has to return true in case it will finish execution
  *                                   and false if it should repeatedly executed
- * @param {function} stopCallback callback is called when the timeout is reachead
+ * @param {function} timeoutCallback callback is called when the timeout is reachead
  *                   without calling the executeCallback
  */
 export function executeWithRetry(
   intervalInMiliseconds,
   maximumIntervallTimeInMiliseconds,
   executeCallback,
-  stopCallback = null
+  timeoutCallback = null
 ) {
+  if (executeCallback()) {
+    return;
+  }
+
   const startTimestampInMiliseconds = Date.now();
 
   const interval = setInterval(() => {
     if (startTimestampInMiliseconds + maximumIntervallTimeInMiliseconds <= Date.now()) {
-      if (stopCallback !== null) {
-        stopCallback();
+      if (timeoutCallback !== null) {
+        timeoutCallback();
       }
 
       clearInterval(interval);
