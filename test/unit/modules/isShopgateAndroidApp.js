@@ -3,7 +3,7 @@ import { isShopgateAndroidApp } from '../../../src/modules/isShopgateAndroidApp'
 
 const { expect } = chai;
 
-describe('IsShopgateAndroidApp', () => {
+describe('isShopgateAndroidApp', () => {
   beforeEach(() => {
     global.window = {};
     global.window.SGJavascriptBridge = true;

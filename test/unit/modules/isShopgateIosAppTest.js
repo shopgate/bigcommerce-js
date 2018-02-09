@@ -3,7 +3,7 @@ import { isShopgateIosApp } from '../../../src/modules/isShopgateIosApp';
 
 const { expect } = chai;
 
-describe('IsShopgateIosApp', () => {
+describe('isShopgateIosApp', () => {
   it('should identify an IOS device', () => {
     global.navigator = {
       userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_1_2 like Mac OS X) AppleWebKit/604.3.5 (KHTML, like Gecko) Mobile/15B202 libshopgate/16.0 (Shopgate Standalone 10.16.0 Codebase:10.16.0)',

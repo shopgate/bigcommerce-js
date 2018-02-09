@@ -29,7 +29,7 @@ describe('ShopgateExecuteAppRelatedCode', () => {
     setTimeout(() => {
       expect(callback.called).equals(false);
       done();
-    }, 150);
+    }, 50);
   });
 
   /**
@@ -45,7 +45,7 @@ describe('ShopgateExecuteAppRelatedCode', () => {
     setTimeout(() => {
       expect(callback.called).equals(false);
       done();
-    }, 250);
+    }, 50);
   });
 
   it('should execute the callback for an iOS Device when the bridge is injected with delay', (done) => {
@@ -55,14 +55,14 @@ describe('ShopgateExecuteAppRelatedCode', () => {
 
     setTimeout(() => {
       global.window.SGJavascriptBridge = true;
-    }, 375);
+    }, 30);
 
     shopgateAppCodeExecutor.execute(callback);
 
     setTimeout(() => {
       expect(callback.called).equals(true);
       done();
-    }, 450);
+    }, 80);
   });
 
   it('should execute the callback for an Android Device when the bridge is injected', (done) => {
@@ -76,6 +76,6 @@ describe('ShopgateExecuteAppRelatedCode', () => {
     setTimeout(() => {
       expect(callback.called).equals(true);
       done();
-    }, 150);
+    }, 50);
   });
 });

@@ -1,7 +1,7 @@
 import { Cart } from './cornerstone/Cart';
 import { Checkout } from './cornerstone/Checkout';
 import { CheckoutSuccess } from './cornerstone/CheckoutSuccess';
-import { onDocumentReady } from '../modules/onDocumentReady';
+import { OnDocumentReady } from '../modules/OnDocumentReady';
 import { pageIdentifier } from '../modules/pageIdentifier';
 import { RegisterSuccess } from './cornerstone/RegisterSuccess';
 import { Register } from './cornerstone/Register';
@@ -43,7 +43,8 @@ shopgateAppCodeExecutor.execute(() => {
   }
 
   if (currentPage !== null) {
-    onDocumentReady(currentPage.execute());
+    const onDocumentReady = new OnDocumentReady();
+    onDocumentReady.execute(currentPage.execute);
   }
 });
 

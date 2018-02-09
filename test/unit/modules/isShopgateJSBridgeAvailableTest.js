@@ -3,7 +3,7 @@ import { isShopgateJSBridgeAvailable } from '../../../src/modules/isShopgateJSBr
 
 const { expect } = chai;
 
-describe('IsShopgateJSBridgeAvailable', () => {
+describe('isShopgateJSBridgeAvailable', () => {
   it('should return false when JSBridge is not set', () => {
     global.window = {};
     expect(isShopgateJSBridgeAvailable()).equal(false);
