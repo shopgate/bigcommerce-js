@@ -1,5 +1,5 @@
 import chai from 'chai';
-import { isShopgateIosApp } from '../../../src/modules/IsShopgateIosApp';
+import { isShopgateIosApp } from '../../../src/modules/isShopgateIosApp';
 
 const { expect } = chai;
 

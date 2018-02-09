@@ -4,7 +4,7 @@
  * @param {AppCommand[]} appCommands to be sent to the App
  * @param {string} libVersion shopgate app lib version
  */
-export function ShopgateSendAppCommands(appCommands, libVersion = '9.0') {
+export function sendAppCommands(appCommands, libVersion = '9.0') {
   if (appCommands.length === 0) {
     return;
   }

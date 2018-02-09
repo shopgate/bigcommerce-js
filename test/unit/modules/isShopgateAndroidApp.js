@@ -1,10 +1,10 @@
 import chai from 'chai';
-import { isShopgateAndroidApp } from '../../../src/modules/IsShopgateAndroidApp';
+import { isShopgateAndroidApp } from '../../../src/modules/isShopgateAndroidApp';
 
 const { expect } = chai;
 
 describe('IsShopgateAndroidApp', () => {
-  before(() => {
+  beforeEach(() => {
     global.window = {};
     global.window.SGJavascriptBridge = true;
   });

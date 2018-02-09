@@ -6,7 +6,7 @@ const SHOPGATE_PAGE_REGISTER = 'register';
 const SHOPGATE_PAGE_REGISTER_SUCCESS = 'register_success';
 const SHOPGATE_PAGE_FORGOT_PASSWORD = 'forgot_password';
 
-export const shopgatePageIdentifier = {
+export const pageIdentifier = {
   scriptFileName: window.location.pathname.substr(1),
   isCheckout() {
     return this.identifyPage() === SHOPGATE_PAGE_CHECKOUT;

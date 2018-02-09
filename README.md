@@ -1,5 +1,6 @@
 # Shopgate Connect - BigCommerce Extension Java Scripts
 [![GitHub license](http://dmlc.github.io/img/apache2.svg)](LICENSE.md)
+[![Build Status](https://travis-ci.org/shopgate/bigcommerce-js.svg?branch=master)](https://travis-ci.org/shopgate/bigcommerce-js)
 
 This repository contains all JavaScripts needed for the Shopgate BigCommerce extension
 

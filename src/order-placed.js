@@ -1,14 +1,15 @@
-import { shopgateExecuteAppRelatedCode } from './modules/ShopgateExecuteAppRelatedCode';
-import { broadcastEvent } from './modules/app_commands/BroadcastEvent';
-import { setNavigationBarParams } from './modules/app_commands/SetNavigationBarParams';
-import { ShopgateSendAppCommands } from './modules/ShopgateSendAppCommands';
-import { isShopgateAndroidApp } from './modules/IsShopgateAndroidApp';
+import { broadcastEvent } from './modules/app_commands/broadcastEvent';
+import { setNavigationBarParams } from './modules/app_commands/setNavigationBarParams';
+import { sendAppCommands } from './modules/sendAppCommands';
+import { isShopgateAndroidApp } from './modules/isShopgateAndroidApp';
+import { ShopgateAppCodeExecutor } from './modules/ShopgateAppCodeExecutor';
 
 /**
  * This method will trigger the checkoutSuccess event and prepare the Shopgate App
  */
 function shopgateOrderPlaced() {
-  shopgateExecuteAppRelatedCode(() => {
+  const shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
+  shopgateAppCodeExecutor.execute(() => {
     const commands = [
       broadcastEvent('checkoutSuccess'),
       setNavigationBarParams(
@@ -20,7 +21,7 @@ function shopgateOrderPlaced() {
       ),
     ];
 
-    ShopgateSendAppCommands(commands);
+    sendAppCommands(commands);
 
     return true;
   });

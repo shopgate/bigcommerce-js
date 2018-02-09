@@ -1,41 +1,49 @@
-import { shopgateCart } from './cornerstone/cart';
-import { shopgateCheckout } from './cornerstone/checkout';
-import { shopgateCheckoutSuccess } from './cornerstone/checkout_success';
-import { shopgateOnDocumentReady } from '../modules/ShopgateOnDocumentReady';
-import { shopgatePageIdentifier } from '../modules/ShopgatePageIdentifier';
-import { shopgateRegisterSuccess } from './cornerstone/register_success';
-import { shopgateRegister } from './cornerstone/register';
-import { shopgateLogin } from './cornerstone/login';
-import { shopgateForgotPassword } from './cornerstone/forgot_password';
-import { shopgateExecuteAppRelatedCode } from '../modules/ShopgateExecuteAppRelatedCode';
+import { Cart } from './cornerstone/Cart';
+import { Checkout } from './cornerstone/Checkout';
+import { CheckoutSuccess } from './cornerstone/CheckoutSuccess';
+import { onDocumentReady } from '../modules/onDocumentReady';
+import { pageIdentifier } from '../modules/pageIdentifier';
+import { RegisterSuccess } from './cornerstone/RegisterSuccess';
+import { Register } from './cornerstone/Register';
+import { Login } from './cornerstone/Login';
+import { ForgotPassword } from './cornerstone/ForgotPassword';
+import { ShopgateAppCodeExecutor } from '../modules/ShopgateAppCodeExecutor';
 
-shopgateExecuteAppRelatedCode(() => {
-  if (shopgatePageIdentifier.isCart()) {
-    shopgateOnDocumentReady(shopgateCart);
+const shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
+
+shopgateAppCodeExecutor.execute(() => {
+  /** @var {AbstractPage} */
+  let currentPage;
+
+  switch (true) {
+    case pageIdentifier.isCart():
+      currentPage = new Cart(shopgateAppCodeExecutor);
+      break;
+    case pageIdentifier.isCheckout():
+      currentPage = new Checkout(shopgateAppCodeExecutor);
+      break;
+    case pageIdentifier.isCheckoutSuccess():
+      currentPage = new CheckoutSuccess(shopgateAppCodeExecutor);
+      break;
+    case pageIdentifier.isForgotPassword():
+      currentPage = new ForgotPassword(shopgateAppCodeExecutor);
+      break;
+    case pageIdentifier.isLogin():
+      currentPage = new Login(shopgateAppCodeExecutor);
+      break;
+    case pageIdentifier.isRegister():
+      currentPage = new Register(shopgateAppCodeExecutor);
+      break;
+    case pageIdentifier.isRegistrationSuccess():
+      currentPage = new RegisterSuccess(shopgateAppCodeExecutor);
+      break;
+    default:
+      currentPage = null;
+      break;
   }
 
-  if (shopgatePageIdentifier.isCheckout()) {
-    shopgateOnDocumentReady(shopgateCheckout);
-  }
-
-  if (shopgatePageIdentifier.isCheckoutSuccess()) {
-    shopgateOnDocumentReady(shopgateCheckoutSuccess);
-  }
-
-  if (shopgatePageIdentifier.isRegister()) {
-    shopgateOnDocumentReady(shopgateRegister);
-  }
-
-  if (shopgatePageIdentifier.isLogin()) {
-    shopgateOnDocumentReady(shopgateLogin);
-  }
-
-  if (shopgatePageIdentifier.isRegistrationSuccess()) {
-    shopgateOnDocumentReady(shopgateRegisterSuccess);
-  }
-
-  if (shopgatePageIdentifier.isForgotPassword()) {
-    shopgateOnDocumentReady(shopgateForgotPassword);
+  if (currentPage !== null) {
+    onDocumentReady(currentPage.execute());
   }
 });
 
