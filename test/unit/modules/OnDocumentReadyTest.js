@@ -6,6 +6,7 @@ import { OnDocumentReady } from '../../../src/modules/OnDocumentReady';
 const { expect } = chai;
 let onDocumentReady = null;
 let callback;
+
 describe('OnDocumentReady', () => {
   beforeEach(() => {
     const dom = new JSDOM('<html><head></head><body>Test</body></html>');
