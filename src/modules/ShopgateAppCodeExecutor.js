@@ -11,8 +11,8 @@ export class ShopgateAppCodeExecutor {
    */
   constructor() {
     this.shopgateApp = null;
-    this.evaluate = false;
     this.callbacks = [];
+    this.evaluateShopgateApp();
   }
 
   /**
@@ -23,10 +23,6 @@ export class ShopgateAppCodeExecutor {
   execute(callback) {
     if (!this.shopgateApp) {
       this.callbacks.push(callback);
-
-      if (this.shopgateApp === null) {
-        this.evaluateShopgateApp();
-      }
       return;
     }
 
@@ -38,10 +34,9 @@ export class ShopgateAppCodeExecutor {
    * @private
    */
   evaluateShopgateApp() {
-    if (this.shopgateApp === false || this.evaluate) {
+    if (this.shopgateApp === false) {
       return;
     }
-    this.evaluate = true;
 
     executeWithRetry(25, 2500, () => {
       if (!isShopgateJSBridgeAvailable()) {

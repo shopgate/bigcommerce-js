@@ -5,6 +5,60 @@ import { executeWithRetry } from '../../../src/modules/executeWithRetry';
 const { expect } = chai;
 let { executeCallback, stopCallback: timeoutCallback } = [null, null];
 
+describe('executeWithRetry use case', () => {
+  it('should verify (every 25 ms) for an whole interval of 100 ms if an app is available before sending app commands. App gets ready after 35 ms', (done) => {
+    let isApp = false;
+    let appCommands = sinon.spy();
+    let appDidNotGetReady = sinon.spy();
+
+    const sendAppCommands = () => {
+      if (!isApp) {
+        return false;
+      }
+
+      appCommands();
+
+      return true;
+    };
+
+    executeWithRetry(25, 100, sendAppCommands, appDidNotGetReady);
+
+    setTimeout(() => {
+      isApp = true;
+    }, 35);
+
+    setTimeout(() => {
+      expect(appDidNotGetReady.called).to.be.equals(false);
+      expect(appCommands.calledOnce).to.be.equals(true);
+      done();
+    }, 70);
+  });
+
+  it('should try verifing (every 25 ms) for an whole interval of 100 ms if an app is available before sending app commands. App never gets ready so the timeout should be called', (done) => {
+    let isApp = false;
+    let appCommands = sinon.spy();
+    let appDidNotGetReady = sinon.spy();
+
+    const sendAppCommands = () => {
+      if (!isApp) {
+        return false;
+      }
+
+      appCommands();
+
+      return true;
+    };
+
+    executeWithRetry(25, 100, sendAppCommands, appDidNotGetReady);
+
+    setTimeout(() => {
+      expect(appDidNotGetReady.calledOnce).to.be.equals(true);
+      expect(appCommands.called).to.be.equals(false);
+      done();
+    }, 125);
+  });
+});
+
 describe('executeWithRetry', () => {
   beforeEach(() => {
     executeCallback = sinon.stub();
