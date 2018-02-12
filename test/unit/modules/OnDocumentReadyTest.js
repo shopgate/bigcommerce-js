@@ -5,18 +5,17 @@ import { OnDocumentReady } from '../../../src/modules/OnDocumentReady';
 
 const { expect } = chai;
 let onDocumentReady = null;
-
+let callback;
 describe('OnDocumentReady', () => {
   beforeEach(() => {
     const dom = new JSDOM('<html><head></head><body>Test</body></html>');
     global.document = dom.window.document;
     global.window = dom.window;
     onDocumentReady = new OnDocumentReady();
+    callback = sinon.spy();
   });
 
   it('should call the callback when document.ready event is dispatched', () => {
-    const callback = sinon.spy();
-
     Object.defineProperty(document, 'readyState', {
       get() { return 'loading'; },
     });
@@ -29,8 +28,6 @@ describe('OnDocumentReady', () => {
   });
 
   it('should call the callback directly when readyState is already set to complete', () => {
-    const callback = sinon.spy();
-
     Object.defineProperty(document, 'readyState', {
       get() { return 'complete'; },
     });
@@ -41,8 +38,6 @@ describe('OnDocumentReady', () => {
   });
 
   it('should call the callback directly when readyState is already set to interactive', () => {
-    const callback = sinon.spy();
-
     Object.defineProperty(document, 'readyState', {
       get() { return 'interactive'; },
     });
@@ -53,8 +48,6 @@ describe('OnDocumentReady', () => {
   });
 
   it('should not be called twice in case readyState is complete and the event is triggered', () => {
-    const callback = sinon.spy();
-
     Object.defineProperty(document, 'readyState', {
       get() { return 'complete'; },
     });
