@@ -29,7 +29,6 @@ export class RegisterSuccess {
    * Will close the In-App-Browser and redirect the user to the register/login page.
    * In case the user is logged in already the cart is shown
    * @private
-   * TODO: Currently only working on Android
    */
   closeInAppBrowser() {
     this.shopgateAppCodeExecutor.execute(() => {
