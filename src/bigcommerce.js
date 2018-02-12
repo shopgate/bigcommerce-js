@@ -20,9 +20,9 @@
    * Default Theme: Cornerstone
    */
   function loadTheme() {
-    var cornerstoneTheme = document.createElement('script');
-    cornerstoneTheme.setAttribute('src', 'https://d192j2fhh9i6kr.cloudfront.net/bigcommerce/v1/src/themes/cornerstone.bundle.min.js');
-    document.head.appendChild(cornerstoneTheme);
+    var theme = document.createElement('script');
+    theme.setAttribute('src', 'https://d192j2fhh9i6kr.cloudfront.net/bigcommerce/v1/src/themes/cornerstone.bundle.min.js');
+    document.head.appendChild(theme);
   }
 
   /**
