@@ -9,5 +9,3 @@ process.env.JUNIT_REPORT_PATH = '../build/mocha.xml';
 process.env.JUNIT_REPORT_STACK = 1;
 
 Module._initPaths();
-
-var navigator = {};
