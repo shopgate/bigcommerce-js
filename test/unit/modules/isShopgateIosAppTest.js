@@ -19,4 +19,12 @@ describe('isShopgateIosApp', () => {
 
     expect(isShopgateIosApp()).equal(false);
   });
+
+  it('should not identify a Desktop system as an iOS Device', () => {
+    global.navigator = {
+      userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36',
+    };
+    expect(isShopgateIosApp()).equal(false);
+  });
 });
+

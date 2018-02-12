@@ -26,7 +26,7 @@ describe('isShopgateAndroidApp', () => {
     expect(isShopgateAndroidApp()).equal(false);
   });
 
-  it('should not identify an Desktop as ', () => {
+  it('should not identify a Desktop system as an Android Device', () => {
     global.navigator = {
       userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36',
     };
