@@ -1,20 +1,20 @@
 import { hideElementsByClassName } from '../../modules/hideElementByClassName';
-import { AbstractPage } from '../AbstractPage';
 
 /**
  * Makes login page escape proof
  */
-export class Login extends AbstractPage {
+export class Login {
   /**
    * Makes login page escape proof
    */
-  execute() {
+  execute = () => {
     this.hideHeader();
     this.hideFooter();
-  }
+  };
 
   /**
    * Hides the header
+   * @private
    */
   hideHeader() {
     hideElementsByClassName('header');
@@ -22,6 +22,7 @@ export class Login extends AbstractPage {
 
   /**
    * Hides the footer
+   * @private
    */
   hideFooter() {
     hideElementsByClassName('footer');

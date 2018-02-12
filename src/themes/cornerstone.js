@@ -12,27 +12,26 @@ import { ShopgateAppCodeExecutor } from '../modules/ShopgateAppCodeExecutor';
 const shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
 
 shopgateAppCodeExecutor.execute(() => {
-  /** @var {AbstractPage} */
   let currentPage;
 
   switch (true) {
     case pageIdentifier.isCart():
-      currentPage = new Cart(shopgateAppCodeExecutor);
+      currentPage = new Cart();
       break;
     case pageIdentifier.isCheckout():
-      currentPage = new Checkout(shopgateAppCodeExecutor);
+      currentPage = new Checkout();
       break;
     case pageIdentifier.isCheckoutSuccess():
-      currentPage = new CheckoutSuccess(shopgateAppCodeExecutor);
+      currentPage = new CheckoutSuccess();
       break;
     case pageIdentifier.isForgotPassword():
-      currentPage = new ForgotPassword(shopgateAppCodeExecutor);
+      currentPage = new ForgotPassword();
       break;
     case pageIdentifier.isLogin():
-      currentPage = new Login(shopgateAppCodeExecutor);
+      currentPage = new Login();
       break;
     case pageIdentifier.isRegister():
-      currentPage = new Register(shopgateAppCodeExecutor);
+      currentPage = new Register();
       break;
     case pageIdentifier.isRegistrationSuccess():
       currentPage = new RegisterSuccess(shopgateAppCodeExecutor);

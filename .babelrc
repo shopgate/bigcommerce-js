@@ -1,6 +1,11 @@
 {
-  "presets": ["env"],
-  "plugins": ["dynamic-import-node"],
+  "presets": [
+    "env"
+  ],
+  "plugins": [
+    "dynamic-import-node",
+    "transform-class-properties"
+  ],
   "env": {
     "test": {
       "presets": [

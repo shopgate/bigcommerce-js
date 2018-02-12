@@ -1,21 +1,21 @@
 import { hideElementsByClassName } from '../../modules/hideElementByClassName';
 import { hideElementById } from '../../modules/hideElementById';
-import { AbstractPage } from '../AbstractPage';
 
 /**
  * Makes checkout escape proof
  */
-export class CheckoutSuccess extends AbstractPage {
+export class CheckoutSuccess {
   /**
    * Makes checkout escape proof
    */
-  execute() {
+  execute = () => {
     this.changeLinks();
     this.hideLinksToDesktopPage();
-  }
+  };
 
   /**
    * Makes specific links not useable
+   * @private
    */
   changeLinks() {
     const anchors = document.getElementsByTagName('A');
@@ -33,6 +33,7 @@ export class CheckoutSuccess extends AbstractPage {
 
   /**
    * Hides specific elements
+   * @private
    */
   hideLinksToDesktopPage() {
     hideElementsByClassName('checkout-banner');

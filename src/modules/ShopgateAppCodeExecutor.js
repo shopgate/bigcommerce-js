@@ -7,7 +7,7 @@ import { isShopgateJSBridgeAvailable } from './isShopgateJSBridgeAvailable';
  */
 export class ShopgateAppCodeExecutor {
   /**
-   * Constructor
+   * @constructor
    */
   constructor() {
     this.shopgateApp = null;
@@ -35,6 +35,7 @@ export class ShopgateAppCodeExecutor {
 
   /**
    * Tries to identify if we are currently in a Shopgate App environment
+   * @private
    */
   evaluateShopgateApp() {
     if (this.shopgateApp === false || this.evaluate) {
@@ -58,6 +59,7 @@ export class ShopgateAppCodeExecutor {
 
   /**
    * Will execute all saved callbacks
+   * @private
    */
   executeQueuedCallbacks() {
     for (let i = 0; i < this.callbacks.length; i += 1) {

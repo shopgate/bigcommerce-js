@@ -1,23 +1,23 @@
 import { hideElementsByClassName } from '../../modules/hideElementByClassName';
 import { walkThroughAnchors } from '../../modules/walkThroughAnchors';
-import { AbstractPage } from '../AbstractPage';
 
 /**
  * Makes cart page escape proof
  */
-export class Cart extends AbstractPage {
+export class Cart {
   /**
    * Make the page escape proof
    */
-  execute() {
+  execute = () => {
     this.removedLinkInTitle();
     this.hideHeader();
     this.hideFooter();
     this.removeProductLinks();
-  }
+  };
 
   /**
    * Removes the link in the title
+   * @private
    */
   removedLinkInTitle() {
     walkThroughAnchors((anchor) => {
@@ -33,6 +33,7 @@ export class Cart extends AbstractPage {
 
   /**
    * Removed links from product links
+   * @private
    */
   removeProductLinks() {
     walkThroughAnchors(((anchor) => {
@@ -47,6 +48,7 @@ export class Cart extends AbstractPage {
 
   /**
    * Hides the header
+   * @private
    */
   hideHeader() {
     hideElementsByClassName('header');
@@ -54,6 +56,7 @@ export class Cart extends AbstractPage {
 
   /**
    * Hides the footer
+   * @private
    */
   hideFooter() {
     hideElementsByClassName('footer');

@@ -1,19 +1,19 @@
 import { walkThroughAnchors } from '../../modules/walkThroughAnchors';
-import { AbstractPage } from '../AbstractPage';
 
 /**
  * Makes checkout escape proof
  */
-export class Checkout extends AbstractPage {
+export class Checkout {
   /**
    * Makes checkout escape proof
    */
-  execute() {
+  execute = () => {
     this.removeLinkInTitle();
-  }
+  };
 
   /**
    * Removes link in the title of the page
+   * @private
    */
   removeLinkInTitle() {
     walkThroughAnchors((anchor) => {
