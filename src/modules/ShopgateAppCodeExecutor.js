@@ -13,7 +13,6 @@ export class ShopgateAppCodeExecutor {
    *                                                to check if a shopgate app environment is set
    */
   constructor(intervalInMiliseconds = 25, maximumIntervallTimeInMiliseconds = 2500) {
-    this.shopgateApp = null;
     this.intervalInMiliseconds = intervalInMiliseconds;
     this.maximumIntervallTimeInMiliseconds = maximumIntervallTimeInMiliseconds;
     this.callbacks = [];
@@ -48,8 +47,6 @@ export class ShopgateAppCodeExecutor {
       this.executeQueuedCallbacks();
 
       return true;
-    }, () => {
-      this.shopgateApp = false;
     });
   }
 
