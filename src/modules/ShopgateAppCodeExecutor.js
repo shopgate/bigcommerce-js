@@ -7,10 +7,15 @@ import { isShopgateJSBridgeAvailable } from './isShopgateJSBridgeAvailable';
  */
 export class ShopgateAppCodeExecutor {
   /**
-   * @constructor
+   * @param {int} intervalInMiliseconds             interval in milisenconds
+   *                                                to check if a shopgate app environment is set
+   * @param {int} maximumIntervallTimeInMiliseconds maximum interval in miliseconds
+   *                                                to check if a shopgate app environment is set
    */
-  constructor() {
+  constructor(intervalInMiliseconds = 25, maximumIntervallTimeInMiliseconds = 2500) {
     this.shopgateApp = null;
+    this.intervalInMiliseconds = intervalInMiliseconds;
+    this.maximumIntervallTimeInMiliseconds = maximumIntervallTimeInMiliseconds;
     this.callbacks = [];
     this.evaluateShopgateApp();
   }
@@ -34,11 +39,7 @@ export class ShopgateAppCodeExecutor {
    * @private
    */
   evaluateShopgateApp() {
-    if (this.shopgateApp === false) {
-      return;
-    }
-
-    executeWithRetry(25, 2500, () => {
+    executeWithRetry(this.intervalInMiliseconds, this.maximumIntervallTimeInMiliseconds, () => {
       if (!isShopgateJSBridgeAvailable()) {
         return false;
       }
