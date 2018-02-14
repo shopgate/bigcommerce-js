@@ -1,8 +1,6 @@
 import { hideElementsByClassName } from '../../modules/hideElementByClassName';
-import { popTabToRoot } from '../../modules/app_commands/popTabToRoot';
-import { openPage } from '../../modules/app_commands/openPage';
-import { showTab } from '../../modules/app_commands/showTab';
 import { sendAppCommands } from '../../modules/sendAppCommands';
+import { broadcastEvent } from '../../modules/app_commands/broadcastEvent';
 
 /**
  * Makes register success page escape proof
@@ -33,9 +31,9 @@ export class RegisterSuccess {
   closeInAppBrowser() {
     this.shopgateAppCodeExecutor.execute(() => {
       sendAppCommands([
-        popTabToRoot('main'),
-        openPage('sgapi:register/login', 'main'),
-        showTab('main'),
+        broadcastEvent('closeInAppBrowser', [{
+          redirectTo: '/cart',
+        }]),
       ]);
     });
   }
