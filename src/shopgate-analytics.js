@@ -1,5 +1,5 @@
 (function(src) {
-  let s, t;
+  var s, t;
   s = document.createElement('script');
   s.type = 'text/javascript';
   s.src = src;

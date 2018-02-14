@@ -17,7 +17,7 @@
   }
 
   /**
-   * Default Theme: Cornerstone
+   * loading a theme to make the page escape prrof. Default Theme: Cornerstone
    */
   function loadTheme() {
     var theme = document.createElement('script');
@@ -26,6 +26,9 @@
   }
 
   /**
+   * Initialize tracking for Shopgate Analytics by using the BigCommerce pageTracker
+   * @see https://support.bigcommerce.com/articles/Public/Setting-Up-Google-Analytics
+   *
    * @param {string} shopgateShopNumber Shopgate shop number of your shop
    */
   function loadTracking(shopgateShopNumber) {
@@ -105,7 +108,9 @@
     return;
   }
 
-  // Shopgate iOS App polling
+  /**
+   * Shopgate iOS App polling
+   */
   function shopgateExecuteWithRetry(
     intervalInMiliseconds,
     maximumIntervallTimeInMiliseconds,
@@ -113,7 +118,7 @@
   ) {
     const startTimestampInMiliseconds = Date.now();
 
-    const interval = setInterval(() => {
+    const interval = setInterval(function() {
       if (startTimestampInMiliseconds + maximumIntervallTimeInMiliseconds <= Date.now()) {
         clearInterval(interval);
         return;

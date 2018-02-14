@@ -17,7 +17,7 @@ describe('ShopgateExecuteAppRelatedCode', () => {
   });
 
   /**
-   * The order of the tests is important because of the shopgateApp variable!
+   * The order of the tests is important because of the isShopgateApp variable!
    */
   it('should not execute the callback for an Android Device when the bridge is not injected', (done) => {
     global.navigator = {
@@ -33,7 +33,7 @@ describe('ShopgateExecuteAppRelatedCode', () => {
   });
 
   /**
-   * The order of the tests is important because of the shopgateApp variable!
+   * The order of the tests is important because of the isShopgateApp variable!
    */
   it('should not execute the callback for an iOS Device when the bridge is not injected', (done) => {
     global.navigator = {

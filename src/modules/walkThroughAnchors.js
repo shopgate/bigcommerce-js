@@ -4,6 +4,8 @@
  */
 
 /**
+ * The method walks through all anchors of a document and calls for each anchor the given callback
+ *
  * @param {ManipulateCallback} manipulateCallback callback has to expect anchors as a parameter
  */
 export function walkThroughAnchors(manipulateCallback) {
