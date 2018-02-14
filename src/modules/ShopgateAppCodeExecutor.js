@@ -26,6 +26,10 @@ export class ShopgateAppCodeExecutor {
    * @param {function} callback the method to call if we are executed inside of a Shopgate App
    */
   execute(callback) {
+    if (typeof callback !== 'function') {
+      return;
+    }
+
     if (!this.isShopgateApp) {
       this.callbacks.push(callback);
       return;
@@ -56,8 +60,12 @@ export class ShopgateAppCodeExecutor {
    * @private
    */
   executeQueuedCallbacks() {
-    for (let i = 0; i < this.callbacks.length; i += 1) {
-      this.callbacks[i]();
-    }
+    this.callbacks.forEach((callback) => {
+      if (typeof callback !== 'function') {
+        return;
+      }
+
+      callback();
+    });
   }
 }
