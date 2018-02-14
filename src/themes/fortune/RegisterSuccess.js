@@ -21,6 +21,7 @@ export class RegisterSuccess {
   execute = () => {
     this.hideHeader();
     this.hideFooter();
+    this.hideButton();
     this.closeInAppBrowser();
   };
 
@@ -44,7 +45,8 @@ export class RegisterSuccess {
    * @private
    */
   hideHeader() {
-    hideElementsByClassName('header');
+    hideElementsByClassName('page-header');
+    hideElementsByClassName('main-header');
   }
 
   /**
@@ -52,6 +54,6 @@ export class RegisterSuccess {
    * @private
    */
   hideFooter() {
-    hideElementsByClassName('footer');
+    hideElementsByClassName('main-footer');
   }
 }
