@@ -2,6 +2,8 @@
 /* eslint-disable */
 
 (function() {
+  var EXTERNAL_JS_RESOURCES_URL = 'https://d192j2fhh9i6kr.cloudfront.net/bigcommerce/v1/src/';
+
   /**
    * this will only be executed when a Shopgate App visits the desktop site.
    */
@@ -21,7 +23,7 @@
    */
   function loadTheme() {
     var theme = document.createElement('script');
-    theme.setAttribute('src', 'https://d192j2fhh9i6kr.cloudfront.net/bigcommerce/v1/src/themes/cornerstone.bundle.min.js');
+    theme.setAttribute('src', EXTERNAL_JS_RESOURCES_URL + '/fortune.bundle.min.js');
     document.head.appendChild(theme);
   }
 
@@ -94,7 +96,7 @@
     window.sgAnalytics = function() { window.__shopgate_aq.push(arguments); };
 
     var shopgateTrackingScript = document.createElement('script');
-    shopgateTrackingScript.setAttribute('src', 'https://d192j2fhh9i6kr.cloudfront.net/bigcommerce/v1/src/shopgate-analytics.bundle.min.js');
+    shopgateTrackingScript.setAttribute('src', EXTERNAL_JS_RESOURCES_URL + 'shopgate-analytics.bundle.min.js');
     document.head.appendChild(shopgateTrackingScript);
   }
 
