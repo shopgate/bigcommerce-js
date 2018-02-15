@@ -1,12 +1,20 @@
+import {
+  isCart,
+  isCheckout,
+  isCheckoutSuccess,
+  isForgotPassword,
+  isLogin,
+  isRegistrationSuccess,
+  isRegister,
+} from '../modules/pageIdentifier';
 import { Cart } from './fortune/Cart';
 import { Checkout } from './fortune/Checkout';
 import { CheckoutSuccess } from './fortune/CheckoutSuccess';
-import { OnDocumentReady } from '../modules/OnDocumentReady';
-import { pageIdentifier } from '../modules/pageIdentifier';
 import { RegisterSuccess } from './fortune/RegisterSuccess';
 import { Register } from './fortune/Register';
 import { Login } from './fortune/Login';
 import { ForgotPassword } from './fortune/ForgotPassword';
+import onDocumentReady from '../modules/onDocumentReady';
 import { ShopgateAppCodeExecutor } from '../modules/ShopgateAppCodeExecutor';
 
 const shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
@@ -15,25 +23,25 @@ shopgateAppCodeExecutor.execute(() => {
   let currentPage;
 
   switch (true) {
-    case pageIdentifier.isCart():
+    case isCart():
       currentPage = new Cart();
       break;
-    case pageIdentifier.isCheckout():
+    case isCheckout():
       currentPage = new Checkout();
       break;
-    case pageIdentifier.isCheckoutSuccess():
+    case isCheckoutSuccess():
       currentPage = new CheckoutSuccess();
       break;
-    case pageIdentifier.isForgotPassword():
+    case isForgotPassword():
       currentPage = new ForgotPassword();
       break;
-    case pageIdentifier.isLogin():
+    case isLogin():
       currentPage = new Login();
       break;
-    case pageIdentifier.isRegister():
+    case isRegister():
       currentPage = new Register();
       break;
-    case pageIdentifier.isRegistrationSuccess():
+    case isRegistrationSuccess():
       currentPage = new RegisterSuccess(shopgateAppCodeExecutor);
       break;
     default:
@@ -42,8 +50,7 @@ shopgateAppCodeExecutor.execute(() => {
   }
 
   if (currentPage !== null) {
-    const onDocumentReady = new OnDocumentReady();
-    onDocumentReady.execute(currentPage.execute);
+    onDocumentReady(currentPage.execute);
   }
 });
 

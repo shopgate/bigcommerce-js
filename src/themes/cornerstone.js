@@ -1,7 +1,3 @@
-import { Cart } from './cornerstone/Cart';
-import { Checkout } from './cornerstone/Checkout';
-import { CheckoutSuccess } from './cornerstone/CheckoutSuccess';
-import onDocumentReady from '../modules/onDocumentReady';
 import {
   isCart,
   isCheckout,
@@ -11,10 +7,14 @@ import {
   isRegistrationSuccess,
   isRegister,
 } from '../modules/pageIdentifier';
+import { Cart } from './cornerstone/Cart';
+import { Checkout } from './cornerstone/Checkout';
+import { CheckoutSuccess } from './cornerstone/CheckoutSuccess';
 import { RegisterSuccess } from './cornerstone/RegisterSuccess';
 import { Register } from './cornerstone/Register';
 import { Login } from './cornerstone/Login';
 import { ForgotPassword } from './cornerstone/ForgotPassword';
+import onDocumentReady from '../modules/onDocumentReady';
 import { ShopgateAppCodeExecutor } from '../modules/ShopgateAppCodeExecutor';
 
 const shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
