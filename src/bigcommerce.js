@@ -36,6 +36,11 @@
   function loadTracking(shopgateShopNumber) {
     initTracking();
 
+    /**
+     * This function is a wrapper for BigCommerce pageTracker variable
+     *
+     * @constructor
+     */
     function ShopgateUniversalTracking() {
       this._addTrans = addTrans;
       this._addItem = addItem;
@@ -45,6 +50,11 @@
       this.currency = shopgateGetCurrency();
     }
 
+    /**
+     * Scrapes the current used currency
+     *
+     * @returns {string}
+     */
     function shopgateGetCurrency() {
       // quotes are necessary example content: All prices are in <span title='Euro'>EUR</span>
       var currencyInfo = "%%GLOBAL_AllPricesAreInCurrency%%";
@@ -52,6 +62,15 @@
       return regularResult && regularResult.length > 1 ? regularResult[1] : '';
     }
 
+    /**
+     * Starts a transaction for a specific order id
+     *
+     * @param {string} orderID
+     * @param {string} store
+     * @param {string} total
+     * @param {string} tax
+     * @param {string} shipping
+     */
     function addTrans(orderID, store, total, tax, shipping) {
       window.sgAnalytics('setConfig', {
         shopNumber: shopgateShopNumber,
@@ -63,6 +82,16 @@
       this.totalPrice = total;
     }
 
+    /**
+     * Adds a product to an existing transaction
+     *
+     * @param {string} orderID order id
+     * @param {string} sku product sku
+     * @param {name} product product name
+     * @param {Object} variation
+     * @param {number} price
+     * @param {string} qty
+     */
     function addItem(orderID, sku, product, variation, price, qty) {
       this.products.push({
         number: String(sku),
@@ -73,6 +102,9 @@
       });
     }
 
+    /**
+     * The final request in BigCommerce analytics tracking
+     */
     function trackTrans() {
       window.sgAnalytics('track', 'checkoutCompleted', {
         orderNumber: this.orderId,
@@ -96,7 +128,7 @@
     window.sgAnalytics = function() { window.__shopgate_aq.push(arguments); };
 
     var shopgateTrackingScript = document.createElement('script');
-    shopgateTrackingScript.setAttribute('src', EXTERNAL_JS_RESOURCES_URL + 'shopgate-analytics.bundle.min.js');
+    shopgateTrackingScript.setAttribute('src', EXTERNAL_JS_RESOURCES_URL + 'shopgate-analytics.js');
     document.head.appendChild(shopgateTrackingScript);
   }
 
