@@ -138,7 +138,7 @@
   }
 
   if (navigator.userAgent.indexOf('libshopgate') === -1) {
-    // No Shopgate Android App and SHopgate iOS app at all
+    // No Shopgate Android App and Shopgate iOS app at all
     return;
   }
 
