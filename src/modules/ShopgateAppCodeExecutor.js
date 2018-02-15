@@ -16,8 +16,8 @@ export class ShopgateAppCodeExecutor {
     this.intervalInMiliseconds = intervalInMiliseconds;
     this.maximumIntervallTimeInMiliseconds = maximumIntervallTimeInMiliseconds;
     this.callbacks = [];
-    this.evaluateShopgateApp();
     this.isShopgateApp = null;
+    this.evaluateShopgateApp();
   }
 
   /**

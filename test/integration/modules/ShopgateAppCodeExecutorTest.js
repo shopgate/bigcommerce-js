@@ -9,10 +9,8 @@ const userAgents = {
   android: '5.0 (Linux; Android 7.1.1; XT1650 Build/NPLS26.118-20-5-11; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/64.0.3282.137 Mobile Safari/537.36',
 };
 
-describe('ShopgateExecuteAppRelatedCode', () => {
+describe('ShopgateAppCodeExecutor', () => {
   beforeEach(() => {
-    global.window = {};
-    shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
     callback = sinon.spy();
   });
 
@@ -23,6 +21,9 @@ describe('ShopgateExecuteAppRelatedCode', () => {
     global.navigator = {
       userAgent: userAgents.android,
     };
+    global.window = {};
+
+    shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
 
     shopgateAppCodeExecutor.execute(callback);
 
@@ -39,6 +40,9 @@ describe('ShopgateExecuteAppRelatedCode', () => {
     global.navigator = {
       userAgent: userAgents.iphone,
     };
+    global.window = {};
+
+    shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
 
     shopgateAppCodeExecutor.execute(callback);
 
@@ -52,10 +56,13 @@ describe('ShopgateExecuteAppRelatedCode', () => {
     global.navigator = {
       userAgent: userAgents.iphone,
     };
+    global.window = {};
+
+    shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
 
     setTimeout(() => {
       global.window.SGJavascriptBridge = true;
-    }, 30);
+    }, 50);
 
     shopgateAppCodeExecutor.execute(callback);
 
@@ -69,7 +76,9 @@ describe('ShopgateExecuteAppRelatedCode', () => {
     global.navigator = {
       userAgent: userAgents.android,
     };
+
     global.window.SGJavascriptBridge = true;
+    shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
 
     shopgateAppCodeExecutor.execute(callback);
 

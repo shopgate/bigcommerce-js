@@ -23,7 +23,7 @@
    */
   function loadTheme() {
     var theme = document.createElement('script');
-    theme.setAttribute('src', EXTERNAL_JS_RESOURCES_URL + '/cornerstone.bundle.min.js');
+    theme.setAttribute('src', EXTERNAL_JS_RESOURCES_URL + 'themes/cornerstone.bundle.min.js');
     document.head.appendChild(theme);
   }
 
