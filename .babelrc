@@ -3,7 +3,6 @@
     "env"
   ],
   "plugins": [
-    "dynamic-import-node",
     "transform-class-properties"
   ],
   "env": {

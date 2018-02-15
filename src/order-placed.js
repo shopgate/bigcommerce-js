@@ -1,7 +1,7 @@
 import { broadcastEvent } from './modules/app_commands/broadcastEvent';
 import { setNavigationBarParams } from './modules/app_commands/setNavigationBarParams';
 import { sendAppCommands } from './modules/sendAppCommands';
-import { isShopgateAndroidApp } from './modules/isShopgateAndroidApp';
+import { isShopgateAndroidApp } from './modules/shopgateDeviceIdentifier';
 import { ShopgateAppCodeExecutor } from './modules/ShopgateAppCodeExecutor';
 
 /**

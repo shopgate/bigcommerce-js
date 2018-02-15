@@ -1,10 +1,9 @@
 import chai from 'chai';
 import { JSDOM } from 'jsdom';
 import sinon from 'sinon';
-import { OnDocumentReady } from '../../../src/modules/OnDocumentReady';
+import onDocumentReady from '../../../src/modules/onDocumentReady';
 
 const { expect } = chai;
-let onDocumentReady = null;
 let callback;
 
 describe('OnDocumentReady', () => {
@@ -12,7 +11,6 @@ describe('OnDocumentReady', () => {
     const dom = new JSDOM('<html><head></head><body>Test</body></html>');
     global.document = dom.window.document;
     global.window = dom.window;
-    onDocumentReady = new OnDocumentReady();
     callback = sinon.spy();
   });
 
@@ -21,7 +19,7 @@ describe('OnDocumentReady', () => {
       get() { return 'loading'; },
     });
 
-    onDocumentReady.execute(callback);
+    onDocumentReady(callback);
 
     global.document.dispatchEvent(new window.Event('DOMContentLoaded'));
 
@@ -33,7 +31,7 @@ describe('OnDocumentReady', () => {
       get() { return 'complete'; },
     });
 
-    onDocumentReady.execute(callback);
+    onDocumentReady(callback);
 
     expect(callback.calledOnce).equal(true);
   });
@@ -43,7 +41,7 @@ describe('OnDocumentReady', () => {
       get() { return 'interactive'; },
     });
 
-    onDocumentReady.execute(callback);
+    onDocumentReady(callback);
 
     expect(callback.calledOnce).equal(true);
   });
@@ -53,7 +51,7 @@ describe('OnDocumentReady', () => {
       get() { return 'complete'; },
     });
 
-    onDocumentReady.execute(callback);
+    onDocumentReady(callback);
 
     global.document.dispatchEvent(new window.Event('DOMContentLoaded'));
 

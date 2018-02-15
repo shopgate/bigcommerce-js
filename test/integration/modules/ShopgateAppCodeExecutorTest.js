@@ -9,20 +9,21 @@ const userAgents = {
   android: '5.0 (Linux; Android 7.1.1; XT1650 Build/NPLS26.118-20-5-11; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/64.0.3282.137 Mobile Safari/537.36',
 };
 
-describe('ShopgateExecuteAppRelatedCode', () => {
+describe('ShopgateAppCodeExecutor', () => {
   beforeEach(() => {
-    global.window = {};
-    shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
     callback = sinon.spy();
   });
 
   /**
-   * The order of the tests is important because of the shopgateApp variable!
+   * The order of the tests is important because of the isShopgateApp variable!
    */
   it('should not execute the callback for an Android Device when the bridge is not injected', (done) => {
     global.navigator = {
       userAgent: userAgents.android,
     };
+    global.window = {};
+
+    shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
 
     shopgateAppCodeExecutor.execute(callback);
 
@@ -33,12 +34,15 @@ describe('ShopgateExecuteAppRelatedCode', () => {
   });
 
   /**
-   * The order of the tests is important because of the shopgateApp variable!
+   * The order of the tests is important because of the isShopgateApp variable!
    */
   it('should not execute the callback for an iOS Device when the bridge is not injected', (done) => {
     global.navigator = {
       userAgent: userAgents.iphone,
     };
+    global.window = {};
+
+    shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
 
     shopgateAppCodeExecutor.execute(callback);
 
@@ -52,10 +56,13 @@ describe('ShopgateExecuteAppRelatedCode', () => {
     global.navigator = {
       userAgent: userAgents.iphone,
     };
+    global.window = {};
+
+    shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
 
     setTimeout(() => {
       global.window.SGJavascriptBridge = true;
-    }, 30);
+    }, 50);
 
     shopgateAppCodeExecutor.execute(callback);
 
@@ -69,7 +76,9 @@ describe('ShopgateExecuteAppRelatedCode', () => {
     global.navigator = {
       userAgent: userAgents.android,
     };
+
     global.window.SGJavascriptBridge = true;
+    shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
 
     shopgateAppCodeExecutor.execute(callback);
 

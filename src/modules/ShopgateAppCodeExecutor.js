@@ -7,15 +7,16 @@ import { isShopgateJSBridgeAvailable } from './isShopgateJSBridgeAvailable';
  */
 export class ShopgateAppCodeExecutor {
   /**
-   * @param {int} intervalInMiliseconds             interval in milisenconds
-   *                                                to check if a shopgate app environment is set
-   * @param {int} maximumIntervallTimeInMiliseconds maximum interval in miliseconds
-   *                                                to check if a shopgate app environment is set
+   * @param {int} [intervalInMiliseconds=25]               interval in milisenconds to check
+   *                                                       if a shopgate app environment is set
+   * @param {int} [maximumIntervallTimeInMiliseconds=2500] maximum interval in miliseconds to check
+   *                                                       if a shopgate app environment is set
    */
   constructor(intervalInMiliseconds = 25, maximumIntervallTimeInMiliseconds = 2500) {
     this.intervalInMiliseconds = intervalInMiliseconds;
     this.maximumIntervallTimeInMiliseconds = maximumIntervallTimeInMiliseconds;
     this.callbacks = [];
+    this.isShopgateApp = null;
     this.evaluateShopgateApp();
   }
 
@@ -25,7 +26,11 @@ export class ShopgateAppCodeExecutor {
    * @param {function} callback the method to call if we are executed inside of a Shopgate App
    */
   execute(callback) {
-    if (!this.shopgateApp) {
+    if (typeof callback !== 'function') {
+      return;
+    }
+
+    if (!this.isShopgateApp) {
       this.callbacks.push(callback);
       return;
     }
@@ -43,7 +48,7 @@ export class ShopgateAppCodeExecutor {
         return false;
       }
 
-      this.shopgateApp = true;
+      this.isShopgateApp = true;
       this.executeQueuedCallbacks();
 
       return true;
@@ -55,8 +60,12 @@ export class ShopgateAppCodeExecutor {
    * @private
    */
   executeQueuedCallbacks() {
-    for (let i = 0; i < this.callbacks.length; i += 1) {
-      this.callbacks[i]();
-    }
+    this.callbacks.forEach((callback) => {
+      if (typeof callback !== 'function') {
+        return;
+      }
+
+      callback();
+    });
   }
 }
