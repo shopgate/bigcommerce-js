@@ -30,7 +30,7 @@ shopgateAppCodeExecutor.execute(() => {
       currentPage = new Checkout();
       break;
     case isCheckoutSuccess():
-      currentPage = new CheckoutSuccess();
+      currentPage = new CheckoutSuccess(shopgateAppCodeExecutor);
       break;
     case isForgotPassword():
       currentPage = new ForgotPassword();

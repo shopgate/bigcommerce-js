@@ -7,10 +7,21 @@ This repository contains all JavaScripts needed for the Shopgate BigCommerce ext
 ## Usage
 
 ### Production
+To generate the files for the production system you need to run:
+
 	npm run webpack:production
 
-This will create a file named build/bundle/bigcommerce.js.
-Replace the string "REPLACE_WITH_SHOP_NUMBER" with your Shopgate shop number.
+This will generate a file in folder "build" named "bigcommerce.js"
+
+In order to use the content of the file you first have to replace the string "REPLACE_WITH_SHOP_NUMBER" 
+with your Shopgate shop number.
+Depending on the theme you are currently using you have to select one of the available:
+
+* cornerstone
+* fortune
+
+and replace the default theme 'cornerstone' with the one you are using in variable "yourTheme".
+If your theme is not available yet feel free to crontribute (see [CONTRIBUTING.md](CONTRIBUTING.md))
 
 The code in file bigcommerce.js needs to be copied to your BigCommerce store. 
 Log into your BigCommerce admin and navigate to "Advanced Settings" > "Web Analytics".
