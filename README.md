@@ -21,7 +21,7 @@ Depending on the theme you are currently using you have to select one of the ava
 * fortune
 
 and replace the default theme 'cornerstone' with the one you are using in variable "yourTheme".
-If your theme is not available yet feel free to crontribute (see [CONTRIBUTING.md](CONTRIBUTING.md))
+If your theme is not available yet, please contact our Customer Success team via support-us@shopgate.com or feel free to crontribute (see [CONTRIBUTING.md](CONTRIBUTING.md))
 
 The code in file bigcommerce.js needs to be copied to your BigCommerce store. 
 Log into your BigCommerce admin and navigate to "Advanced Settings" > "Web Analytics".
@@ -37,7 +37,7 @@ If the text area field is empty you need to surround the JavaScript code with a 
 ### Development
 	npm run webpack
 
-This will create a bigcommerce.js and cornerstone.bundle.js without minifing the code.
+This will create a bigcommerce.js and the theme files without minifing the code.
 
 ## Changelog
 
