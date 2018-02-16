@@ -42,7 +42,8 @@ export class RegisterSuccess {
    * @private
    */
   hideHeader() {
-    hideElementsByClassName('header');
+    hideElementsByClassName('page-header');
+    hideElementsByClassName('main-header');
   }
 
   /**
@@ -50,6 +51,6 @@ export class RegisterSuccess {
    * @private
    */
   hideFooter() {
-    hideElementsByClassName('footer');
+    hideElementsByClassName('main-footer');
   }
 }

@@ -9,21 +9,24 @@
    */
   function shopgateInit() {
     var shopgateShopNumber = 'REPLACE_WITH_SHOP_NUMBER';
+    var yourTheme = 'cornerstone'; // Default Theme: cornerstone
 
     var scriptFileName = window.location.pathname.substr(1);
     if (scriptFileName === 'checkout/order-confirmation' || scriptFileName === 'finishorder.php') {
       loadTracking(shopgateShopNumber);
     }
 
-    loadTheme();
+    loadTheme(yourTheme);
   }
 
   /**
-   * loading a theme to make the page escape prrof. Default Theme: Cornerstone
+   * loading a theme to make the page escape proof.
+   *
+   * @param {string} themeName
    */
-  function loadTheme() {
+  function loadTheme(themeName) {
     var theme = document.createElement('script');
-    theme.setAttribute('src', EXTERNAL_JS_RESOURCES_URL + 'themes/cornerstone.bundle.min.js');
+    theme.setAttribute('src', EXTERNAL_JS_RESOURCES_URL + 'themes/' + themeName + '.bundle.min.js');
     document.head.appendChild(theme);
   }
 
@@ -138,7 +141,7 @@
   }
 
   if (navigator.userAgent.indexOf('libshopgate') === -1) {
-    // No Shopgate Android App and SHopgate iOS app at all
+    // No Shopgate Android App and Shopgate iOS app at all
     return;
   }
 

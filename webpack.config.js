@@ -3,8 +3,8 @@ const webpack = require('webpack');
 
 const webpackConfiguration = {
   entry: {
-    'src/order-placed': './src/order-placed.js',
     'src/themes/cornerstone': './src/themes/cornerstone.js',
+    'src/themes/fortune': './src/themes/fortune.js',
   },
   devtool: 'source-map',
   module: {
