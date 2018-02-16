@@ -34,7 +34,7 @@ describe('executeWithRetry use case', () => {
     }, 70);
   });
 
-  it('should try verifing (every 25 ms) for an whole interval of 100 ms if an app is available before sending app commands. App never gets ready so the timeout callback should be called', (done) => {
+  it('should try verifying (every 25 ms) for an whole interval of 100 ms if an app is available before sending app commands. App never gets ready so the timeout callback should be called', (done) => {
     let isApp = false;
     let appCommands = sinon.spy();
     let appDidNotGetReady = sinon.spy();
