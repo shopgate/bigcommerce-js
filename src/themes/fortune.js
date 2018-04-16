@@ -16,10 +16,13 @@ import { Login } from './fortune/Login';
 import { ForgotPassword } from './fortune/ForgotPassword';
 import onDocumentReady from '../modules/onDocumentReady';
 import { ShopgateAppCodeExecutor } from '../modules/ShopgateAppCodeExecutor';
+import setupShopgateApp from '../modules/setupShopgateApp';
 
 const shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
 
 shopgateAppCodeExecutor.execute(() => {
+  setupShopgateApp();
+
   let currentPage;
 
   switch (true) {
