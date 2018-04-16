@@ -2,7 +2,7 @@ import { hideElementsByClassName } from '../../modules/hideElementByClassName';
 import { sendAppCommands } from '../../modules/sendAppCommands';
 import { broadcastEvent } from '../../modules/app_commands/broadcastEvent';
 import { getRedirectPath, isWebcheckout } from '../../modules/shopgateApp';
-import { redirectToCheckout } from '../../modules/redirectToCheckout';
+import { redirectToCheckout, prepareForCheckout } from '../../modules/redirectToCheckout';
 
 /**
  * Makes register success page escape proof
@@ -24,6 +24,7 @@ export class RegisterSuccess {
 
     let callback = this.closeInAppBrowser;
     if (isWebcheckout()) {
+      prepareForCheckout();
       callback = redirectToCheckout;
     }
     this.rewriteCloseButtonDestination(callback);
