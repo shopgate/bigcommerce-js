@@ -1,16 +1,5 @@
-import { getParameterFromQueryString } from './url';
+import { getParameterFromQueryString, getQSFromUrl } from './url';
 import { getCookie, setCookie } from './cookies';
-
-/**
- * Returns query string parameter form url.
- *
- * @param {string} url An url.
- * @returns {string}
- */
-function getQSFromUrl(url) {
-  const qsPosition = url.indexOf('?');
-  return qsPosition !== -1 ? window.location.href.substring(qsPosition) : '';
-}
 
 /**
  * Returns a path app should be redirected when the process on bigcommerce side is done.

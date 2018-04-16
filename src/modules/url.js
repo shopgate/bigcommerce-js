@@ -11,3 +11,14 @@ export function getParameterFromQueryString(queryString, parameterName) {
 
   return decodeURIComponent(results[1]);
 }
+
+/**
+ * Returns query string parameter form url.
+ *
+ * @param {string} url An url.
+ * @returns {string}
+ */
+export function getQSFromUrl(url) {
+  const qsPosition = url.indexOf('?');
+  return qsPosition !== -1 ? window.location.href.substring(qsPosition) : '';
+}
