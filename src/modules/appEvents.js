@@ -17,7 +17,7 @@ export function subscribeEventReceived(eventName, subscriberCallback) {
  * Notify all subscribed callback when an app event is received.
  *
  * @param {stirng} eventName Name of the app event.
- * @param {function} eventArguments Arguments of the event.
+ * @param {Array} eventArguments Arguments of the event.
  */
 export function notifyEventReceived(eventName, eventArguments) {
   if (!Array.isArray(subscribers[eventName])) {

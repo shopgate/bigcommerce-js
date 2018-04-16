@@ -24,9 +24,5 @@ describe('url', () => {
       result = getParameterFromQueryString('?', 'sgcloud_callback_data');
       expect(result).equals(null);
     });
-
-    it('should find sgcloud_checkout', () => {
-      'https://store-r5s844ad.mybigcommerce.com/login.php?action=create_account?sgcloud_callback_data=%7B%22redirectTo%22%3A%22%2F%22%7D&sgcloud_checkout=1&action=create_account'
-    });
   });
 });

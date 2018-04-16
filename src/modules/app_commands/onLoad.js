@@ -1,5 +1,5 @@
 /**
- * App command onload#
+ * App command onload.
  * @returns {AppCommand}
  */
 export function onLoad() {
