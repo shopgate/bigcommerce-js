@@ -2,7 +2,7 @@
  * App command to send pipeline request.
  *
  * @param {string} pipelineName Name of the pipeline.
- * @param {string} pipelineInput Input parameters for the pipeline.
+ * @param {Object} [pipelineInput={}] Input parameters for the pipeline.
  * @returns {AppCommand}
  */
 export function sendPipelineRequest(pipelineName, pipelineInput = {}) {
@@ -20,7 +20,7 @@ export function sendPipelineRequest(pipelineName, pipelineInput = {}) {
  * App command to send trusted pipeline request.
  *
  * @param {string} pipelineName Name of the pipeline.
- * @param {string} pipelineInput Input parameters for the pipeline.
+ * @param {Object} [pipelineInput={}] Input parameters for the pipeline.
  * @returns {AppCommand}
  */
 export function sendTrustedPipelineRequest(pipelineName, pipelineInput = {}) {
