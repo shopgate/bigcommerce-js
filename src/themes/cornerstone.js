@@ -16,10 +16,13 @@ import { Login } from './cornerstone/Login';
 import { ForgotPassword } from './cornerstone/ForgotPassword';
 import onDocumentReady from '../modules/onDocumentReady';
 import { ShopgateAppCodeExecutor } from '../modules/ShopgateAppCodeExecutor';
+import setupShopgateApp from '../modules/setupShopgateApp';
 
 const shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
 
 shopgateAppCodeExecutor.execute(() => {
+  setupShopgateApp();
+
   let currentPage;
 
   switch (true) {
