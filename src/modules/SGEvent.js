@@ -16,4 +16,13 @@ export default {
 
     notifyEventReceived(eventName, args);
   },
+
+  /**
+   * It is required for iOS app in order for SGEvent to be used.
+   * Additionally due to issue in android app page in in app browser gets changed.
+   * @returns {boolean}
+   */
+  isDocumentReady: function isDocumentReady() {
+    return true;
+  },
 };

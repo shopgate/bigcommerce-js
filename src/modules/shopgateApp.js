@@ -1,5 +1,5 @@
 import { getParameterFromQueryString, getQSFromUrl } from './url';
-import { getCookie, setCookie } from './cookies';
+import { getCookie, setCookie, invalidateCookie } from './cookies';
 
 /**
  * Returns a path app should be redirected when the process on bigcommerce side is done.
@@ -12,26 +12,6 @@ export function getRedirectPath() {
   }
 
   return sgCallback.redirectTo;
-}
-
-/**
-* Inserts a "libshopgate" meta tag into the head of the page,
-* to enable the Shopgate app event system.
-*/
-export function enableShopgateAppEvents() {
-  // Check if insertion is needed
-  const libshopgate = 'libshopgate';
-  if (document.getElementById(libshopgate)) {
-    return;
-  }
-
-  // Insert libshopgate as meta tag, to tell the Shopgate app to send events
-  // Not using a script tag to avoid "src unavailable" errors in the browsers console
-  const metaTag = document.createElement('meta');
-  metaTag.setAttribute('id', libshopgate);
-  // Add a "src" property (not an attribute, because of the iOS app not receiving it otherwise)
-  metaTag.src = libshopgate;
-  document.getElementsByTagName('head').item(0).appendChild(metaTag);
 }
 
 /**
@@ -50,4 +30,11 @@ export function checkWebcheckout() {
   if (parseInt(webcheckout, 10) === 1) {
     setCookie('sgcloud_checkout', 1);
   }
+}
+
+/**
+ * Invalidates web checkout cookie.
+ */
+export function invalidateWebCheckout() {
+  invalidateCookie('sgcloud_checkout');
 }

@@ -1,7 +1,7 @@
 import { subscribeEventReceived } from '../appEvents';
 
 /**
- * Wrapper around subscriber for isDocumentReady app event.
+ * Wrapper around subscriber for pageInsetsChanged app event.
  */
 export default function () {
   // Due to issue in android app page in in app browser gets changed

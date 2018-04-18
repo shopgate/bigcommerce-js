@@ -1,7 +1,7 @@
 import { hideElementsByClassName } from '../../modules/hideElementByClassName';
 import { sendAppCommands } from '../../modules/sendAppCommands';
 import { broadcastEvent } from '../../modules/app_commands/broadcastEvent';
-import { getRedirectPath, isWebcheckout } from '../../modules/shopgateApp';
+import { getRedirectPath, isWebcheckout, invalidateWebCheckout } from '../../modules/shopgateApp';
 import { redirectToCheckout, prepareForCheckout } from '../../modules/redirectToCheckout';
 
 /**
@@ -24,6 +24,7 @@ export class RegisterSuccess {
     let callback = this.closeInAppBrowser;
     if (isWebcheckout()) {
       prepareForCheckout();
+      invalidateWebCheckout();
       callback = redirectToCheckout;
     }
     this.rewriteCloseButtonDestination(callback);

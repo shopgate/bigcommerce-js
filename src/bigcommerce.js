@@ -3,6 +3,7 @@
 
 (function() {
   var EXTERNAL_JS_RESOURCES_URL = 'https://d192j2fhh9i6kr.cloudfront.net/bigcommerce/v1/src/';
+  enableShopgateAppEvents();
 
   /**
    * this will only be executed when a Shopgate App visits the desktop site.
@@ -178,6 +179,54 @@
 
     return true;
   });
+
+  /**
+   * Enabling ShopgateApp events by injecting a libshopgate meta tag.
+   * Needed early (in the page loading phase) in order for iOS app to work as we expect it to.
+   */
+  function enableShopgateAppEvents() {
+    // Check if insertion is needed
+    var libshopgate = 'libshopgate';
+    if (document.getElementById(libshopgate)) {
+      return;
+    }
+  
+    // Insert libshopgate as meta tag, to tell the Shopgate app to send events
+    // Not using a script tag to avoid "src unavailable" errors in the browsers console
+    var metaTag = document.createElement('meta');
+    metaTag.setAttribute('id', libshopgate);
+    // Add a "src" property (not an attribute, because of the iOS app not receiving it otherwise)
+    metaTag.src = libshopgate;
+    document.getElementsByTagName('head').item(0).appendChild(metaTag);
+  }
+
+  // SGEvent placeholder needed early (in the page loading phase) in order for iOS app to work as we expect it to.
+  window.SGEvent = {
+    /**
+     * @param {string} eventName Name of the event.
+     * @param {Array} eventArguments Arguments to the event.
+     */
+    __call: function call(eventName, eventArguments) {
+      console.log(`${`# Received event ${eventName}`}$`);
+  
+      var args = eventArguments;
+  
+      if (!eventArguments || !Array.isArray(eventArguments)) {
+        args = [];
+      }
+
+      console.warn(`Received event ${eventName} is not processed`);
+    },
+  
+    /**
+     * It is required for iOS app in order for SGEvent to be used.
+     * Additionally due to issue in android app page in in app browser gets changed.
+     * @returns {boolean}
+     */
+    isDocumentReady: function isDocumentReady() {
+      return true;
+    }
+  };
 
 })();
 

@@ -34,3 +34,10 @@ export function setCookie(cookieName, cookieValue, expireInDays = 1) {
   const expires = `expires=${d.toUTCString()}`;
   document.cookie = `${cookieName}=${cookieValue};${expires};path=/`;
 }
+
+/**
+ * @param {string} cookieName Name of the cookie.
+ */
+export function invalidateCookie(cookieName) {
+  setCookie(cookieName, '', 0);
+}
