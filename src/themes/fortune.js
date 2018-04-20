@@ -7,13 +7,13 @@ import {
   isRegistrationSuccess,
   isRegister,
 } from '../modules/pageIdentifier';
-import { Cart } from './cornerstone/Cart';
-import { Checkout } from './cornerstone/Checkout';
-import { CheckoutSuccess } from './cornerstone/CheckoutSuccess';
-import { RegisterSuccess } from './cornerstone/RegisterSuccess';
-import { Register } from './cornerstone/Register';
-import { Login } from './cornerstone/Login';
-import { ForgotPassword } from './cornerstone/ForgotPassword';
+import { Cart } from './fortune/Cart';
+import { Checkout } from './fortune/Checkout';
+import { CheckoutSuccess } from './fortune/CheckoutSuccess';
+import { RegisterSuccess } from './fortune/RegisterSuccess';
+import { Register } from './fortune/Register';
+import { Login } from './fortune/Login';
+import { ForgotPassword } from './fortune/ForgotPassword';
 import onDocumentReady from '../modules/onDocumentReady';
 import { ShopgateAppCodeExecutor } from '../modules/ShopgateAppCodeExecutor';
 import setupShopgateApp from '../modules/setupShopgateApp';

@@ -1,25 +1,47 @@
 {
-  "name": "@shopgate/bigcommerce-webcheckout",
+  "name": "@shopgate/bigcommerce-js",
   "version": "0.1.0",
-  "description": "This repository contains all JavaScripts for BigCommerce webcheckout",
+  "description": "This repository contains all JavaScripts for the Shopgate Connect BigCommerce Extension",
   "scripts": {
-    "webpack:production": "cross-env NODE_ENV=production webpack && npm run uglify:analytics",
-    "webpack": "webpack && npm run uglify:analytics",
-    "uglify:analytics": "uglifyjs src/analytics.js -o build/bundle/analytics.js"
+    "precommit": "lint-staged && npm run test",
+    "webpack:production": "cross-env NODE_ENV=production webpack && npm run prepare:bigcommerce-js && npm run prepare:shopgate-analytics-js",
+    "webpack": "webpack && npm run prepare:bigcommerce-js && npm run prepare:shopgate-analytics-js",
+    "prepare:bigcommerce-js": "cp src/bigcommerce.js build/src/bigcommerce.js",
+    "prepare:shopgate-analytics-js": "cp src/shopgate-analytics.js build/src/shopgate-analytics.js",
+    "test": "_mocha --use_strict --require babel-core/register --require test/setupBackend.js --recursive test/",
+    "test:unit": "_mocha --use_strict --require babel-core/register --require test/setupBackend.js --recursive test/unit/",
+    "test:integration": "_mocha --use_strict --timeout 4000 --require babel-core/register --require test/setupBackend.js --recursive test/integration/",
+    "lint": "eslint src",
+    "check": "nsp check"
+  },
+  "lint-staged": {
+    "*.js": "eslint"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shopgate/webcheckout-bigcommerce.git"
+    "url": "https://github.com/shopgate/bigcommerce-js.git"
   },
   "license": "Apache-2.0",
   "dependencies": {},
   "devDependencies": {
     "@shopgate/eslint-config": "^1.0.3",
+    "@types/chai": "^4.1.2",
+    "@types/jsdom": "^11.0.4",
+    "@types/sinon": "^4.1.3",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
     "cross-env": "^5.1.3",
     "eslint": "^4.16.0",
+    "husky": "^0.14.3",
+    "jsdom": "^11.6.2",
+    "lint-staged": "^6.1.0",
+    "mocha": "^5.0.0",
+    "nsp": "^3.1.0",
+    "sinon": "^4.2.2",
     "uglify-js": "^3.3.8",
     "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.10.0"

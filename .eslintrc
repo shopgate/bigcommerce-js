@@ -1,3 +1,10 @@
 {
-  "extends": "@shopgate/eslint-config"
+  "extends": "@shopgate/eslint-config",
+  "rules": {
+    "eslint-comments/no-use": "allow",
+    "class-methods-use-this": "off"
+  },
+  "env": {
+    "mocha": true
+  }
 }

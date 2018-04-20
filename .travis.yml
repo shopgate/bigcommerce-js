@@ -1,0 +1,21 @@
+language: node_js
+
+install:
+- npm install
+
+matrix:
+  fast_finish: true
+  include:
+    - node_js: 8
+      env: TYPE=UNIT_CODESTYLE_DEPENDENCY
+      script:
+      - npm run test:unit
+      - npm run lint
+      - npm run check
+
+notifications:
+  slack:
+    rooms:
+      secure: JbReRAFSzSebAuhjmiO1y3qxcNb1KusO1dfb4uWhSxMQIzF9a8df4M7bHs414DribMknmp6axWXby5M1eDkVGE447r43fucy2cFAKvBgksPnQNJE1S2ic3b8Al+8C3+3RbKb/pUSSAq8xtVZ1Oti4ZxwCg29pPANUjn9wGNyYfbduj+o8AakS+KyuGnubUu1TmZcmYmflaHDI6WkeXAyz5b5Pw/fWSEJOLlARp0HhlQ2LDTOxrbw3V2McVQ/2XKpsZo11sL3cZmweUk6OyQmlJ23sktgiBzUCr9UtbbMEWWkMuZp1Vead690f+UkcVh2lmdHabBSxiNmm8Fm6tuYrytnsClGzH8M0R0qNPr9mXmxaW8e0iulo2dU8H9ntAHMVWPygAYNpPp9+KpNTa+wBYQkMl2M/cHWVpslHDoJkjcI6Nf7fSzyH3vGll+QBmJKBrasxRF3MXNeYj+23dHc0aYqeFvTogepPA6V3stq6c6XBm0cv2iu6AKFSKjmBPVLH7kN9geqnb19PqUnHxlY1A7jpYOBGDTMtF+JJk941yJcy+PaE1HRFfc5/9ed17xKmLgv5rO6HYLpV7vxwOtpzkz4PUDNy3wXm6B4sci34LrOKfTluIE3/CpB4U5JFJLdNRtJI6D5y6WVBxo/ByjI0ULn2r9VSqpnSwLKrs430/c=
+    on_success: change
+    on_failure: always

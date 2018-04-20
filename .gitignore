@@ -1,5 +1,7 @@
 .idea
+.vscode
+.DS_Store
 node_modules
 
-build/bundle/*
-!build/bundle/.gitkeep
+build/src/*
+!build/src/.gitkeep
