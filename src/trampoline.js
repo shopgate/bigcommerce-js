@@ -1,6 +1,6 @@
 import { ShopgateSendAppCommands } from './modules/ShopgateSendAppCommands';
 import { shopgateSetWebStorage } from './modules/app_commands/ShopgateSetWebStorage';
-import { shopgateExecuteAppRelatedCode } from './modules/ShopgateExecuteAppRelatedCode';
+import { ShopgateAppCodeExecutor } from './modules/ShopgateAppCodeExecutor';
 
 /**
  * Will return all GET parameters in an array
@@ -9,7 +9,7 @@ import { shopgateExecuteAppRelatedCode } from './modules/ShopgateExecuteAppRelat
 function getGETParameters() {
   const result = {};
 
-  if (!window.loacation.hasOwnProperty('search') || !window.loacation.search) {
+  if (!window.location.hasOwnProperty('search') || !window.location.search) {
     return result;
   }
 
@@ -21,13 +21,18 @@ function getGETParameters() {
 
     result[variableDefinition[0]] = decodeURIComponent(variableDefinition[1]);
   });
+
   return result;
 }
 
-shopgateExecuteAppRelatedCode(() => {
+const getParameters = getGETParameters();
+console.log(getParameters);
+
+const shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
+shopgateAppCodeExecutor.execute(() => {
   const getParameters = getGETParameters();
   console.log(getParameters);
 
-  ShopgateSendAppCommands(shopgateSetWebStorage('get_parameters', getParameters));
+  ShopgateSendAppCommands([shopgateSetWebStorage('get_parameters', getParameters)]);
 });
 

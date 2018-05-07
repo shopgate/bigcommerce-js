@@ -6,6 +6,7 @@
     "precommit": "lint-staged && npm run test",
     "webpack:production": "cross-env NODE_ENV=production webpack && npm run prepare:bigcommerce-js && npm run prepare:shopgate-analytics-js",
     "webpack": "webpack && npm run prepare:bigcommerce-js && npm run prepare:shopgate-analytics-js",
+    "webpack:watch": "webpack --progress --watch",
     "prepare:bigcommerce-js": "cp src/bigcommerce.js build/src/bigcommerce.js",
     "prepare:shopgate-analytics-js": "cp src/shopgate-analytics.js build/src/shopgate-analytics.js",
     "test": "_mocha --use_strict --require babel-core/register --require test/setupBackend.js --recursive test/",
