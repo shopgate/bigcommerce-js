@@ -1,10 +1,18 @@
 import { hideElementsByClassName } from '../../modules/hideElementByClassName';
 import { setMargin, setPaddingTop, setPaddingBottom } from '../../modules/boxing';
+import { onRegister } from '../../modules/registerHooks';
 
 /**
  * Makes register page escape proof
  */
 export class Register {
+  /**
+   * Class constructor.
+   */
+  constructor() {
+    this.rendered = false;
+  }
+
   /**
    * Makes register page escape proof
    */
@@ -12,7 +20,16 @@ export class Register {
     this.hideHeader();
     this.hideFooter();
     this.improveTopPositions();
+    onRegister();
+    this.rendered = true;
   };
+
+  /**
+   * @returns {boolean}
+   */
+  isRendered() {
+    return this.rendered;
+  }
 
   /**
    * Sets margins and padding for the top elements.

@@ -12,7 +12,7 @@ const shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
 export function prepareForCheckout() {
   shopgateAppCodeExecutor.execute(() => {
     sendAppCommands([
-      sendPipelineRequest('shopgate.checkout.getUrl.v1'),
+      sendPipelineRequest('bigcommerce.checkout.getUrl.v1'),
     ], '12.0');
   });
 }
