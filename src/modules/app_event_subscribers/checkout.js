@@ -7,12 +7,12 @@ let checkoutUrl = null;
  */
 export default function () {
   subscribeEventReceived('pipelineResponse', (err, pipelineName, response) => {
-    if (err) {
-      console.error(`Called pipeline '${pipelineName}' resulted in an error: ${JSON.stringify(err)}`);
+    if (pipelineName !== 'bigcommerce.checkout.getUrl.v1') {
       return;
     }
 
-    if (pipelineName !== 'shopgate.checkout.getUrl.v1') {
+    if (err) {
+      console.error(`Called pipeline '${pipelineName}' resulted in an error: ${JSON.stringify(err)}`);
       return;
     }
 

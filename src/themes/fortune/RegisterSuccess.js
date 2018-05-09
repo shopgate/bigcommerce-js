@@ -3,6 +3,7 @@ import { sendAppCommands } from '../../modules/sendAppCommands';
 import { broadcastEvent } from '../../modules/app_commands/broadcastEvent';
 import { getRedirectPath, isWebcheckout, invalidateWebCheckout } from '../../modules/shopgateApp';
 import { redirectToCheckout, prepareForCheckout } from '../../modules/redirectToCheckout';
+import { performAutologin, isAutologinDone } from '../../modules/app_event_subscribers/autologin';
 
 /**
  * Makes register success page escape proof
@@ -19,8 +20,11 @@ export class RegisterSuccess {
    * Makes register success page escape proof
    */
   execute = () => {
+    performAutologin();
+
     this.hideHeader();
     this.hideFooter();
+
     let callback = this.closeInAppBrowser;
     if (isWebcheckout()) {
       prepareForCheckout();
@@ -29,6 +33,12 @@ export class RegisterSuccess {
     }
     this.rewriteCloseButtonDestination(callback);
   };
+
+  /**
+   * Provides information on when the rendering process can be seen as complete.
+   * @returns {boolean}
+   */
+  isRendered = () => isAutologinDone();
 
   /**
    * Sets 'Continue shopping' button close the browser.
