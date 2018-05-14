@@ -1,5 +1,5 @@
-import { ShopgateSendAppCommands } from './modules/ShopgateSendAppCommands';
-import { shopgateSetWebStorageEntry } from './modules/app_commands/ShopgateSetWebStorageEntry';
+import { sendAppCommands } from './modules/sendAppCommands';
+import { setWebStorageEntry } from './modules/app_commands/setWebStorageEntry';
 import { ShopgateAppCodeExecutor } from './modules/ShopgateAppCodeExecutor';
 import SGEvent from './modules/SGEvent';
 
@@ -31,7 +31,7 @@ shopgateAppCodeExecutor.execute(() => {
   window.SGEvent = SGEvent;
   const trampolineParameters = getGETParameters();
 
-  ShopgateSendAppCommands([shopgateSetWebStorageEntry('trampoline_parameters', trampolineParameters, 600000)]);
+  sendAppCommands([setWebStorageEntry('trampoline_parameters', trampolineParameters, 600000)]);
 
   if (trampolineParameters.redirect_url) {
     window.location.href = trampolineParameters.redirect_url;
