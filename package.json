@@ -4,10 +4,11 @@
   "description": "This repository contains all JavaScripts for the Shopgate Connect BigCommerce Extension",
   "scripts": {
     "precommit": "lint-staged && npm run test",
-    "webpack:production": "cross-env NODE_ENV=production webpack && npm run prepare:bigcommerce-js && npm run prepare:shopgate-analytics-js",
-    "webpack": "webpack && npm run prepare:bigcommerce-js && npm run prepare:shopgate-analytics-js",
+    "webpack:production": "cross-env NODE_ENV=production webpack && npm run prepare:bigcommerce-js && npm run prepare:trampoline && npm run prepare:shopgate-analytics-js",
+    "webpack": "webpack && npm run prepare:bigcommerce-js && npm run prepare:shopgate-analytics-js && npm run prepare:trampoline",
     "webpack:watch": "webpack --progress --watch",
     "prepare:bigcommerce-js": "cp src/bigcommerce.js build/src/bigcommerce.js",
+    "prepare:trampoline": "cp src/trampoline.html build/src/trampoline.html",
     "prepare:shopgate-analytics-js": "cp src/shopgate-analytics.js build/src/shopgate-analytics.js",
     "test": "_mocha --use_strict --require babel-core/register --require test/setupBackend.js --recursive test/",
     "test:unit": "_mocha --use_strict --require babel-core/register --require test/setupBackend.js --recursive test/unit/",

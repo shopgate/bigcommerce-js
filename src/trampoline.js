@@ -1,6 +1,7 @@
 import { ShopgateSendAppCommands } from './modules/ShopgateSendAppCommands';
-import { shopgateSetWebStorage } from './modules/app_commands/ShopgateSetWebStorage';
+import { shopgateSetWebStorageEntry } from './modules/app_commands/ShopgateSetWebStorageEntry';
 import { ShopgateAppCodeExecutor } from './modules/ShopgateAppCodeExecutor';
+import SGEvent from './modules/SGEvent';
 
 /**
  * Will return all GET parameters in an array
@@ -25,14 +26,15 @@ function getGETParameters() {
   return result;
 }
 
-const getParameters = getGETParameters();
-console.log(getParameters);
-
 const shopgateAppCodeExecutor = new ShopgateAppCodeExecutor();
 shopgateAppCodeExecutor.execute(() => {
-  const getParameters = getGETParameters();
-  console.log(getParameters);
+  window.SGEvent = SGEvent;
+  const trampolineParameters = getGETParameters();
 
-  ShopgateSendAppCommands([shopgateSetWebStorage('get_parameters', getParameters)]);
+  ShopgateSendAppCommands([shopgateSetWebStorageEntry('trampoline_parameters', trampolineParameters, 600000)]);
+
+  if (trampolineParameters.redirect_url) {
+    window.location.href = trampolineParameters.redirect_url;
+  }
 });
 

@@ -6,9 +6,9 @@
  *                                0 means there is no automatically deleting
  * @return {Object}
  */
-export function shopgateSetWebStorage(name, value, timeout = 0) {
+export function shopgateSetWebStorageEntry(name, value, timeout = 0) {
   return {
-    c: 'setWebstorage',
+    c: 'setWebStorageEntry',
     p: {
       name,
       value,

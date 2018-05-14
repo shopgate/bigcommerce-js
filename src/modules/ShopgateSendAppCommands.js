@@ -10,7 +10,8 @@ export function ShopgateSendAppCommands(appCommands) {
 
   if ('dispatchCommandsForVersion' in window.SGJavascriptBridge) {
     window.SGJavascriptBridge.dispatchCommandsForVersion(appCommands, '9.0');
-  } else {
-    window.SGJavascriptBridge.dispatchCommandsStringForVersion(JSON.stringify(appCommands), '9.0');
+    return;
   }
+
+  window.SGJavascriptBridge.dispatchCommandsStringForVersion(JSON.stringify(appCommands), '9.0');
 }

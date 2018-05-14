@@ -5,9 +5,9 @@
  *
  * @return {Object}
  */
-export function shopgateGetWebStorage(name, serial) {
+export function shopgateGetWebStorageEntry(name, serial) {
   return {
-    c: 'getWebStorage',
+    c: 'getWebStorageEntry',
     p: {
       name,
       serial,
