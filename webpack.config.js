@@ -5,8 +5,12 @@ const webpackConfiguration = {
   entry: {
     'src/themes/cornerstone': './src/themes/cornerstone.js',
     'src/themes/fortune': './src/themes/fortune.js',
+    'src/trampoline': './src/trampoline.js',
   },
   devtool: 'source-map',
+  watchOptions: {
+    ignored: '/node_modules/',
+  },
   module: {
     rules: [
       {

@@ -39,6 +39,40 @@ If the text area field is empty you need to surround the JavaScript code with a 
 
 This will create a bigcommerce.js and the theme files without minifing the code.
 
+### Trampoline page
+
+The trampoline page is needed to forward parameters that are normally added to the checkout url (like tracking parameters) because all parameters will be lost after the redirect to the desktop page.
+This page will save the parameters in the web store of our app and make them available on the desktop page.
+
+There is a trampoline.html which needs to be uploaded to a public available url.
+The url to the trampoline page needs to be returned in the shopgate.checkout.getUrl.v1 pipeline and gets the real checkout url as parameter (redirect_url)
+
+This code needs to run on the desktop page to read the parameters:
+
+```
+import { ShopgateSendAppCommands } from './modules/ShopgateSendAppCommands';
+import registerWebStorageResponse from './modules/app_event_subscribers/webStorageResponse';
+import { subscribeEventReceived } from '../appEvents';
+
+/**
+ * Wrapper around subscriber for webStorageResponse app event.
+ */
+function registerWebStorageResponse () {
+  subscribeEventReceived('webStorageResponse', (serial, age, value) => {
+    if (serial === '12345678') {
+      console.log(serial);
+      console.log(age);
+      console.log(value);
+    }
+  });
+}
+
+registerWebStorageResponse();
+ShopgateSendAppCommands([shopgateGetWebStorageEntry('trampoline_parameters', 12345678)]);
+```
+
+Be aware that the code needs to be transpiled before it can be put on the desktop page!
+
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) file for more information.
