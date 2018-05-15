@@ -55,7 +55,7 @@ import registerWebStorageResponse from './modules/app_event_subscribers/webStora
 import { subscribeEventReceived } from '../appEvents';
 
 /**
- * Wrapper around subscriber for pageInsetsChanged app event.
+ * Wrapper around subscriber for webStorageResponse app event.
  */
 function registerWebStorageResponse () {
   subscribeEventReceived('webStorageResponse', (serial, age, value) => {
