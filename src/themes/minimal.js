@@ -8,12 +8,12 @@ import {
   isRegister,
 } from '../modules/pageIdentifier';
 import { Cart } from './cornerstone/Cart';
-import { Checkout } from './minimalLight/Checkout';
-import { CheckoutSuccess } from './minimalLight/CheckoutSuccess';
-import { RegisterSuccess } from './minimalLight/RegisterSuccess';
-import { Register } from './minimalLight/Register';
-import { Login } from './minimalLight/Login';
-import { ForgotPassword } from './minimalLight/ForgotPassword';
+import { Checkout } from './minimal/Checkout';
+import { CheckoutSuccess } from './minimal/CheckoutSuccess';
+import { RegisterSuccess } from './minimal/RegisterSuccess';
+import { Register } from './minimal/Register';
+import { Login } from './minimal/Login';
+import { ForgotPassword } from './minimal/ForgotPassword';
 import onDocumentReady from '../modules/onDocumentReady';
 import { ShopgateAppCodeExecutor } from '../modules/ShopgateAppCodeExecutor';
 import setupShopgateApp from '../modules/setupShopgateApp';
