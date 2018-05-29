@@ -53,7 +53,6 @@ export class CheckoutSuccess {
    */
   hideUnneededElementsOnDesktopPage() {
     hideElementsByClassName('nav-area');
-    hideElementsByClassName('share-main-panel');
     hideElementsByClassName('Button');
     hideElementById('SideTopSellers');
     hideElementById('Footer');
