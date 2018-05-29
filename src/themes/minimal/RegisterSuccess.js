@@ -87,6 +87,6 @@ export class RegisterSuccess {
    * @private
    */
   hideFooter() {
-    hideElementsByClassName('footer');
+    hideElementById('Footer');
   }
 }

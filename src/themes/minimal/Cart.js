@@ -42,7 +42,7 @@ export class Cart {
       let parent = anchor;
       // eslint-disable-next-line no-cond-assign
       while (parent = parent.parentElement) {
-        if (parent.className === 'ProductDetails' && anchor.parentElement.nodeName === 'STRONG') {
+        if (parent.className === 'CartList' && (anchor.parentElement.nodeName === 'STRONG' || anchor.parentElement.className === 'ProductImage')) {
           // eslint-disable-next-line no-param-reassign
           anchor.onclick = e => e.preventDefault();
         }
@@ -65,5 +65,6 @@ export class Cart {
    */
   hideFooter() {
     hideElementById('Footer');
+    hideElementById('SuggestiveCartContent');
   }
 }
