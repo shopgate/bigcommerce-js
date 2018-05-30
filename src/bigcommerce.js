@@ -54,7 +54,7 @@
    */
   function shopgateGetCurrency() {
     // quotes are necessary example content: All prices are in <span title='Euro'>EUR</span>
-    var currencyInfo = '%%GLOBAL_AllPricesAreInCurrency%%';
+    var currencyInfo = "%%GLOBAL_AllPricesAreInCurrency%%";
     var regularResult = currencyInfo.match(new RegExp('/*.>([A-Za-z]{3})</'));
 
     if (regularResult && regularResult.length > 1) {
