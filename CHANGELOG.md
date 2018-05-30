@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## Unreleased
 ### Added
 - tracking via checkoutSuccess event
+- support for minimal theme
 
 ### Removed
 - Shopgate analytics tracking
