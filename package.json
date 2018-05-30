@@ -1,6 +1,6 @@
 {
   "name": "@shopgate/bigcommerce-js",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "This repository contains all JavaScripts for the Shopgate Connect BigCommerce Extension",
   "scripts": {
     "precommit": "lint-staged && npm run test",
