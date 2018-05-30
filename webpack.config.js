@@ -5,6 +5,7 @@ const webpackConfiguration = {
   entry: {
     'src/themes/cornerstone': './src/themes/cornerstone.js',
     'src/themes/fortune': './src/themes/fortune.js',
+    'src/themes/minimal': './src/themes/minimal.js',
     'src/trampoline': './src/trampoline.js',
   },
   devtool: 'source-map',
