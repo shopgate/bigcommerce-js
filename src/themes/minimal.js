@@ -7,7 +7,7 @@ import {
   isRegistrationSuccess,
   isRegister,
 } from '../modules/pageIdentifier';
-import { Cart } from './cornerstone/Cart';
+import { Cart } from './minimal/Cart';
 import { Checkout } from './minimal/Checkout';
 import { CheckoutSuccess } from './minimal/CheckoutSuccess';
 import { RegisterSuccess } from './minimal/RegisterSuccess';
