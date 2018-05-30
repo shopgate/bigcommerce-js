@@ -1,6 +1,5 @@
 import { hideElementsByClassName } from '../../modules/hideElementByClassName';
 import { hideElementById } from '../../modules/hideElementById';
-import { broadcastEvent } from '../../modules/app_commands/broadcastEvent';
 import { setNavigationBarParams } from '../../modules/app_commands/setNavigationBarParams';
 import { isShopgateAndroidApp } from '../../modules/shopgateDeviceIdentifier';
 import { sendAppCommands } from '../../modules/sendAppCommands';
@@ -32,7 +31,6 @@ export class CheckoutSuccess {
   changeInAppBrowserLayout() {
     this.shopgateAppCodeExecutor.execute(() => {
       const commands = [
-        broadcastEvent('checkoutSuccess'),
         setNavigationBarParams(
           'Checkout',
           false,
