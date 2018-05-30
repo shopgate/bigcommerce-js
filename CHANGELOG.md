@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## Unreleased
 
-## [0.3.0] - 2018-05-30
+[0.3.0] - 2018-05-30
 ### Added
 - tracking via checkoutSuccess event
 - support for minimal theme
