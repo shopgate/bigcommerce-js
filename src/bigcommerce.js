@@ -128,10 +128,10 @@
     if (this.previousPageTracker && typeof this.previousPageTracker._trackTrans === 'function') {
       this.previousPageTracker._trackTrans();
     }
-
+    var orderId = this.orderId
     var checkoutSuccess = {
       order: {
-        number: this.orderId,
+        number: orderId,
         currency: this.currency ? this.currency : 'USD',
         totals: [
           this.shippingTotal,
@@ -154,8 +154,16 @@
             'event': 'checkoutSuccess',
             'parameters': [checkoutSuccess]
           }
+        },
+        {
+          'c': 'sendPipelineRequest',
+          'p': {
+            'serial': 'bigcommerce.checkout.markOrderAsShopgate.v1',
+            'name': 'bigcommerce.checkout.markOrderAsShopgate.v1',
+            'input': { orderId },
+          }
         }
-      ]);
+      ], '12.0');
 
       return true;
     });
@@ -184,12 +192,13 @@
   /**
    * Send all given commands to the app
    * @param {Array} commands
+   * @param {string} version
    */
-  function sendCommandsToApp(commands) {
+  function sendCommandsToApp(commands, version = '9.0') {
     if ('dispatchCommandsForVersion' in SGJavascriptBridge) {
-      SGJavascriptBridge.dispatchCommandsForVersion(commands, '9.0');
+      SGJavascriptBridge.dispatchCommandsForVersion(commands, version);
     } else {
-      SGJavascriptBridge.dispatchCommandsStringForVersion(JSON.stringify(commands), '9.0');
+      SGJavascriptBridge.dispatchCommandsStringForVersion(JSON.stringify(commands), version);
     }
   }
 
