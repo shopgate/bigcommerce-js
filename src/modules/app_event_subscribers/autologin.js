@@ -18,7 +18,7 @@ function requestCurrentCustomer() {
   const clientId = 'ked0n332n5c8opplowtqmc6kb817wot';
   sendAppCommands([
     sendHttpRequest({
-      url: `https://store-r5s844ad.mybigcommerce.com/customer/current.jwt?app_client_id=${clientId}`,
+      url: `https://${window.location.hostname}/customer/current.jwt?app_client_id=${clientId}`,
       serial: CURRENT_CUSTOMER_SERIAL,
       method: 'GET',
     }),
