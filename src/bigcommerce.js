@@ -154,16 +154,8 @@
             'event': 'checkoutSuccess',
             'parameters': [checkoutSuccess]
           }
-        },
-        {
-          'c': 'sendPipelineRequest',
-          'p': {
-            'serial': 'bigcommerce.checkout.markOrderAsShopgate.v1',
-            'name': 'bigcommerce.checkout.markOrderAsShopgate.v1',
-            'input': { orderId },
-          }
         }
-      ], '12.0');
+      ]);
 
       return true;
     });
