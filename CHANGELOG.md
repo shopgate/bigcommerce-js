@@ -6,19 +6,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
-[0.4.2] - 2018-06-11
+## [0.4.2] - 2018-06-11
 ### Removed
 - marking orders placed via Shopgate App in favour of bigcommerce-cart implementation
 
-[0.4.1] - 2018-06-06
+## [0.4.1] - 2018-06-06
 ### Fixed
 - corrected url used in getting current customer for auto login
 
-[0.4.0] - 2018-06-05
+## [0.4.0] - 2018-06-05
 ### Added
 - marking orders placed via Shopgate App
 
-[0.3.0] - 2018-05-30
+## [0.3.0] - 2018-05-30
 ### Added
 - tracking via checkoutSuccess event
 - support for minimal theme
@@ -26,12 +26,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Removed
 - Shopgate analytics tracking
 
-[0.2.0] - 2018-05-09
+## [0.2.0] - 2018-05-09
 ### Added
 - autologin support for user registration on themes: cornerstone and fortune
 - user registration process support on themes: cornerstone and fortune 
 
-[0.1.0] - 2018-02-16
+## [0.1.0] - 2018-02-16
 ### Added
 - theme files for making the checkout escape proof for themes: cornerstone and fortune
 - files for shopgate analytics
