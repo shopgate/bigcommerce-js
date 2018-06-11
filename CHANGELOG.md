@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+### Removed
+- marking orders placed via Shopgate App in favour of bigcommerce-cart implementation
+
 [0.4.1] - 2018-06-06
 ### Fixed
 - corrected url used in getting current customer for auto login
