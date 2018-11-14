@@ -1,5 +1,6 @@
 # Shopgate Connect - BigCommerce Extension Java Scripts
-[![GitHub license](http://dmlc.github.io/img/apache2.svg)](LICENSE.md)
+
+[![GitHub license](http://dmlc.github.io/img/apache2.svg)](LICENSE)
 [![Build Status](https://travis-ci.org/shopgate/bigcommerce-js.svg?branch=master)](https://travis-ci.org/shopgate/bigcommerce-js)
 
 This repository contains all JavaScripts needed for the Shopgate BigCommerce extension.
@@ -91,6 +92,6 @@ apps and mobile websites for the iPhone, iPad, Android smartphones and tablets.
 
 ## License
 
-Shopgate Cloud - Extension BigCommerce Cart is available under the Apache License, Version 2.0.
+This project is available under the Apache License, Version 2.0.
 
-See the [LICENSE](./LICENSE.md) file for more information.
+See the [LICENSE](./LICENSE) file for more information.
