@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- checkout items detail popup modified to fit according to pageInsets, hide edit cart link 
 
 ## [0.4.2] - 2018-06-11
 ### Removed

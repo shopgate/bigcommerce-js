@@ -13,7 +13,7 @@
     "test:unit": "_mocha --use_strict --require babel-core/register --require test/setupBackend.js --recursive test/unit/",
     "test:integration": "_mocha --use_strict --timeout 4000 --require babel-core/register --require test/setupBackend.js --recursive test/integration/",
     "lint": "eslint src",
-    "check": "nsp check"
+    "check": "npm audit"
   },
   "lint-staged": {
     "*.js": "eslint"
@@ -41,7 +41,6 @@
     "jsdom": "^11.10.0",
     "lint-staged": "^6.1.1",
     "mocha": "^5.1.1",
-    "nsp": "^3.2.1",
     "sinon": "^4.5.0",
     "uglify-js": "^3.3.23",
     "uglifyjs-webpack-plugin": "^1.2.5",
